@@ -45,11 +45,11 @@ namespace Poc.BoletoSre2.Gateways {
 
                     var SolicitacaoLogin = new { login = login, senha = senha };
 
-                    var retorno = await RealizarPostAsync<TicketAutenticacao, SegurancaSessaoFaultContract>(SolicitacaoLogin, metodo, cancellationToken, client).ConfigureAwait(false);
-                    if (retorno.Status.Codigo == "OK") {
-                        return retorno.Data;
+                    var retorno = await RealizarPostAsync(SolicitacaoLogin, metodo, client, cancellationToken).ConfigureAwait(false);
+                    if (retorno.sucesso) {
+                        return retorno.resp;
                     }
-                    _log.LogError("Erro de segurança. Erro: {@retorno}", retorno);
+                    _log.LogError("Erro de segurança. Erro: {@retorno}", retorno.erro);
                 }
             }
             catch(Exception xabu) {
@@ -88,49 +88,32 @@ namespace Poc.BoletoSre2.Gateways {
         /// <param name="url"></param>
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
-        protected async Task<RetornoOperacao<T, E>> RealizarPostAsync<T, E>(object conteudo, string url = null, CancellationToken cancellationToken = default, HttpClient client = null) {
+        protected async Task<(bool sucesso, TicketAutenticacao resp, SegurancaSessaoFaultContract erro)> RealizarPostAsync(object conteudo, string url = null, HttpClient client = null, CancellationToken cancellationToken = default) {
 
-            RetornoOperacao<T, E> retorno = new RetornoOperacao<T, E>();
+            (bool sucesso, TicketAutenticacao resp, SegurancaSessaoFaultContract erro) retorno = new(false, null, null);
 
-            JsonSerializerSettings settings = new JsonSerializerSettings() {
-                NullValueHandling = NullValueHandling.Ignore,
-            };
+            JsonSerializerSettings settings = new JsonSerializerSettings() { NullValueHandling = NullValueHandling.Ignore };
 
-            string json = JsonConvert.SerializeObject(conteudo, settings);
-            HttpContent httpContent = new StringContent(json);
+            HttpContent httpContent = new StringContent(JsonConvert.SerializeObject(conteudo, settings));
             httpContent.Headers.ContentType.MediaType = "application/json";
 
-            if (client == null) {
-                using (HttpClient httpClient = CriarHttpClient()) {
-                    var responseMessage = await httpClient.PostAsync(url, httpContent, cancellationToken);
-                    await ProcessarResponseMessageAsync(retorno, responseMessage, cancellationToken).ConfigureAwait(false);
-                }
-            }
-            else {
-                var responseMessage = await client.PostAsync(url, httpContent, cancellationToken);
-                await ProcessarResponseMessageAsync(retorno, responseMessage, cancellationToken).ConfigureAwait(false);
-            }
+            var responseMessage = await client.PostAsync(url, httpContent, cancellationToken);
+            retorno = await ProcessarResponseMessageAsync<TicketAutenticacao, SegurancaSessaoFaultContract>(responseMessage, cancellationToken).ConfigureAwait(false);
 
             return retorno;
         }
 
-        protected async Task ProcessarResponseMessageAsync<T, E>(RetornoOperacao<T, E> retorno, HttpResponseMessage responseMessage, CancellationToken cancellationToken) {
+        protected async Task<(bool sucesso, R, E)> ProcessarResponseMessageAsync<R,E>(HttpResponseMessage responseMessage, CancellationToken cancellationToken) {
 
-            string mensagemErro = responseMessage.ReasonPhrase;
+            (bool sucesso,R resp, E erro) retorno = new(false, default, default);
 
             string jsonResult = await responseMessage.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
             if (responseMessage.StatusCode == HttpStatusCode.OK || responseMessage.StatusCode == HttpStatusCode.Created) {
-                retorno.Status.Codigo = "OK";
-                if (typeof(T) == typeof(string)) {
-                    // Remover aspas no começo e fim do texto...
-                    string texto = (jsonResult?.Length > 2) ? jsonResult.Substring(1, jsonResult.Length - 2) : "";
-                    retorno.Data = (T)(object)texto;
-                }
-                else {
-                    retorno.Data = JsonConvert.DeserializeObject<T>(jsonResult);
-                }
+                retorno.sucesso = true;
+                retorno.resp = JsonConvert.DeserializeObject<R>(jsonResult);
             }
             else {
+                retorno.sucesso = false;
                 var resumo = new {
                     StatusCode = Convert.ToInt32(responseMessage.StatusCode),
                     ReasonPhrase = responseMessage.ReasonPhrase,
@@ -140,41 +123,15 @@ namespace Poc.BoletoSre2.Gateways {
                 };
                 _log.LogError("SegurancaRestGateway: Erro na requisição: {@resumo}", resumo);
 
-                // Tentar deserializar o erro para o tipo de erro/generics informado...
                 try {
-                    retorno.Erro = JsonConvert.DeserializeObject<E>(jsonResult);
+                    retorno.erro = JsonConvert.DeserializeObject<E>(jsonResult);
                 }
                 catch (Exception xabu) {
-                    _log.LogError(xabu, "SegurancaRestGateway: Falha ao recuperar erro retornado. Retorno json não serializavel para tipo informado.");
-                }
-
-                // Genericamente faz um cast de retorno.Erro para problemDetails, que deverá ser um cenário geral.
-                // Se o cast falhar, problemDetails estará sempre como um null e não será utilizada a seguir...
-                ProblemDetails problemDetails = retorno.Erro as ProblemDetails;
-
-                if (responseMessage.StatusCode == HttpStatusCode.Forbidden || responseMessage.StatusCode == HttpStatusCode.Unauthorized) {
-                    // Erro de segurança...
-                    retorno.Status = new StatusRetorno() { Codigo = "ERRO_SEGURANCA", Mensagem = "Erro de segurança durante comunicação com integração." };
-                }
-                else if (responseMessage.StatusCode == HttpStatusCode.BadRequest) {
-                    // Erro de validação...
-                    retorno.Status = new StatusRetorno() { Codigo = "ERRO_VALIDACAO", Mensagem = "Erro de validação durante comunicação com integração." };
-                    retorno.Mensagens.Add(new OperacaoInfo() { Codigo = "ERRO_VALIDACAO", Mensagem = problemDetails?.Detail ?? mensagemErro });
-                }
-                else if (responseMessage.StatusCode == HttpStatusCode.InternalServerError) {
-                    // Erro interno na integração (do lado do servidor)...
-                    retorno.Status = new StatusRetorno() { Codigo = "ERRO_INTEGRACAO", Mensagem = "Erro interno na integração." };
-                }
-                else if (responseMessage.StatusCode == HttpStatusCode.ServiceUnavailable) {
-                    // Serviço desligado e/ou indisponível...
-                    retorno.Status = new StatusRetorno() { Codigo = "ERRO_INTEGRACAO", Mensagem = "Ocorreu um erro na comunicação com o serviço." };
-                    retorno.Mensagens.Add(new OperacaoInfo() { Codigo = "ERRO_INTEGRACAO", Mensagem = "O serviço se encontra indisponível no momento. Favor tentar dentro de alguns minutos." });
-                }
-                else {
-                    // Demais erros...
-                    retorno.Status = new StatusRetorno() { Codigo = "ERRO_INTERNO", Mensagem = "Ocorreu um erro na comunicação com o serviço." };
+                    _log.LogError(xabu, "SegurancaRestGateway: Falha ao recuperar erro retornado. Retorno json não serializavel para tipo experdo.");
                 }
             }
+
+            return retorno;
         }
 
         public void Dispose() {
