@@ -14,7 +14,7 @@ namespace SreIntBancClient
     
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloGuia", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloGuia : SreIntBancClient.EntidadeBase
     {
@@ -231,7 +231,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EntidadeBase", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidade")]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SreIntBancClient.VwGuiaArrecadacao))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SreIntBancClient.AutenticacaoBiometricaAndamento))]
@@ -684,6 +684,7 @@ namespace SreIntBancClient
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SreIntBancClient.OrgaoRepresentativo))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SreIntBancClient.Simbolo))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SreIntBancClient.DistribuicaoVogalRelator))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SreIntBancClient.EmissorCertidaoDisponivel))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SreIntBancClient.Arquivo))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SreIntBancClient.ArquivoConteudo))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SreIntBancClient.InformacaoGeralArquivo))]
@@ -768,6 +769,7 @@ namespace SreIntBancClient
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SreIntBancClient.Peso))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SreIntBancClient.BoletoBancarioBloqueio))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SreIntBancClient.ContaBanco))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SreIntBancClient.BoletoBancarioPagador))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SreIntBancClient.FormaPagamento))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SreIntBancClient.ProtocoloGuia))]
     public partial class EntidadeBase : object
@@ -805,7 +807,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="VwGuiaArrecadacao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class VwGuiaArrecadacao : SreIntBancClient.EntidadeBase
     {
@@ -1907,7 +1909,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AutenticacaoBiometricaAndamento", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class AutenticacaoBiometricaAndamento : SreIntBancClient.EntidadeBase
     {
@@ -2124,7 +2126,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="BoletoBancario", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class BoletoBancario : SreIntBancClient.EntidadeBase
     {
@@ -2173,6 +2175,8 @@ namespace SreIntBancClient
         
         private SreIntBancClient.OperacaoCreditoDebito[] OperacoesCreditoDebitoField;
         
+        private SreIntBancClient.BoletoBancarioPagador PagadorField;
+        
         private bool PagoField;
         
         private SreIntBancClient.PorteEmpresarial PorteEmpresarialField;
@@ -2205,7 +2209,7 @@ namespace SreIntBancClient
         
         private decimal ValorReconhecimentoFacialField;
         
-        private decimal ValorTarifaField;
+        private System.Nullable<decimal> ValorTarifaField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public SreIntBancClient.BoletoBancarioAtoEvento[] AtoEventos
@@ -2494,6 +2498,19 @@ namespace SreIntBancClient
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public SreIntBancClient.BoletoBancarioPagador Pagador
+        {
+            get
+            {
+                return this.PagadorField;
+            }
+            set
+            {
+                this.PagadorField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public bool Pago
         {
             get
@@ -2702,7 +2719,7 @@ namespace SreIntBancClient
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public decimal ValorTarifa
+        public System.Nullable<decimal> ValorTarifa
         {
             get
             {
@@ -2716,7 +2733,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="BoletoBancarioAtoEvento", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class BoletoBancarioAtoEvento : SreIntBancClient.EntidadeBase
     {
@@ -2828,7 +2845,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AtoEvento", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class AtoEvento : SreIntBancClient.EntidadeBase
     {
@@ -3360,7 +3377,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Ato", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class Ato : SreIntBancClient.EntidadeBase
     {
@@ -3562,7 +3579,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="GrupoAto", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class GrupoAto : SreIntBancClient.EntidadeBase
     {
@@ -3659,7 +3676,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TipoAto", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class TipoAto : SreIntBancClient.EntidadeBase
     {
@@ -3801,7 +3818,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AtoEventoConfiguracao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class AtoEventoConfiguracao : SreIntBancClient.EntidadeBase
     {
@@ -3988,7 +4005,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AtoEventoConfiguracaoCompatibilidade", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class AtoEventoConfiguracaoCompatibilidade : SreIntBancClient.EntidadeBase
     {
@@ -4085,7 +4102,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AtoEventoConfiguracaoIncompatibilidade", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class AtoEventoConfiguracaoIncompatibilidade : SreIntBancClient.EntidadeBase
     {
@@ -4182,7 +4199,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AtoEventoComportamento", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class AtoEventoComportamento : SreIntBancClient.EntidadeBase
     {
@@ -4279,7 +4296,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TipoLivroTipoAto", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class TipoLivroTipoAto : SreIntBancClient.EntidadeBase
     {
@@ -4376,7 +4393,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TipoLivro", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class TipoLivro : SreIntBancClient.EntidadeBase
     {
@@ -4638,7 +4655,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="GrupoTipoLivro", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class GrupoTipoLivro : SreIntBancClient.EntidadeBase
     {
@@ -4705,7 +4722,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Protocolo", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SreIntBancClient.ProtocoloOficio))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SreIntBancClient.ProtocoloCertidao))]
@@ -4810,6 +4827,8 @@ namespace SreIntBancClient
         
         private SreIntBancClient.ProtocoloImagem[] ImagensField;
         
+        private bool ImagensTransferidasField;
+        
         private SreIntBancClient.ProtocoloInformacaoAdicional[] InformacoesAdicionaisField;
         
         private SreIntBancClient.JulgamentoProcessoVinculadoJulgador[] JulgamentoProcessoVinculadoJulgadorField;
@@ -4845,6 +4864,8 @@ namespace SreIntBancClient
         private SreIntBancClient.Parecer[] ParecerField;
         
         private string PeticaoField;
+        
+        private bool PossuiDBEField;
         
         private bool PrioridadeField;
         
@@ -5471,6 +5492,19 @@ namespace SreIntBancClient
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool ImagensTransferidas
+        {
+            get
+            {
+                return this.ImagensTransferidasField;
+            }
+            set
+            {
+                this.ImagensTransferidasField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public SreIntBancClient.ProtocoloInformacaoAdicional[] InformacoesAdicionais
         {
             get
@@ -5701,6 +5735,19 @@ namespace SreIntBancClient
             set
             {
                 this.PeticaoField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool PossuiDBE
+        {
+            get
+            {
+                return this.PossuiDBEField;
+            }
+            set
+            {
+                this.PossuiDBEField = value;
             }
         }
         
@@ -6213,7 +6260,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ACFEtapaPosArquivamento", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ACFEtapaPosArquivamento : SreIntBancClient.EntidadeBase
     {
@@ -6355,7 +6402,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ACFFluxoPosArquivamentoAtividade", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ACFFluxoPosArquivamentoAtividade : SreIntBancClient.EntidadeBase
     {
@@ -6542,7 +6589,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ACFFluxoPosArquivamentoAtividadeAba", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ACFFluxoPosArquivamentoAtividadeAba : SreIntBancClient.EntidadeBase
     {
@@ -6639,7 +6686,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AbaFichaACF", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class AbaFichaACF : SreIntBancClient.EntidadeBase
     {
@@ -6721,7 +6768,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AgenteACFAbaFichaACF", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class AgenteACFAbaFichaACF : SreIntBancClient.EntidadeBase
     {
@@ -6818,7 +6865,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AgenteACF", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class AgenteACF : SreIntBancClient.EntidadeBase
     {
@@ -6870,7 +6917,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ACFFluxoPosArquivamentoAbaCampo", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ACFFluxoPosArquivamentoAbaCampo : SreIntBancClient.EntidadeBase
     {
@@ -6997,7 +7044,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Campos", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class Campos : SreIntBancClient.EntidadeBase
     {
@@ -7079,7 +7126,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ACFFluxoPosArquivamentoAtividadeCampo", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ACFFluxoPosArquivamentoAtividadeCampo : SreIntBancClient.EntidadeBase
     {
@@ -7176,7 +7223,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ACFFluxoPosArquivamento", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ACFFluxoPosArquivamento : SreIntBancClient.EntidadeBase
     {
@@ -7333,7 +7380,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Evento", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class Evento : SreIntBancClient.EntidadeBase
     {
@@ -7535,7 +7582,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ACFFluxoPosArquivamentoAtividadeRelatorio", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ACFFluxoPosArquivamentoAtividadeRelatorio : SreIntBancClient.EntidadeBase
     {
@@ -7632,7 +7679,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="RelatorioACF", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class RelatorioACF : SreIntBancClient.EntidadeBase
     {
@@ -7729,7 +7776,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Usuario", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class Usuario : SreIntBancClient.EntidadeBase
     {
@@ -7780,6 +7827,8 @@ namespace SreIntBancClient
         
         private string EmailAntigoField;
         
+        private SreIntBancClient.EmissorCertidaoDisponivel[] EmissorCertidaoDisponivelField;
+        
         private SreIntBancClient.Empresa[] EmpresaField;
         
         private SreIntBancClient.EmpresaHistoricoCapital[] EmpresaHistoricoCapitalField;
@@ -7808,9 +7857,9 @@ namespace SreIntBancClient
         
         private SreIntBancClient.Funcionario[] Funcionario1Field;
         
-        private SreIntBancClient.GuiaAndamento[] GuiaAndamentoField;
+        private SreIntBancClient.GrupoExigencia[] GrupoExigenciaField;
         
-        private string HashSenhaField;
+        private SreIntBancClient.GuiaAndamento[] GuiaAndamentoField;
         
         private SreIntBancClient.BoletoBancarioHistoricoLiberacaoPagamento[] HistoricoLiberacaoPagamentoBoletoField;
         
@@ -7910,8 +7959,6 @@ namespace SreIntBancClient
         
         private SreIntBancClient.TradutorSituacaoFuncionalHistorico[] RegistrosSituacaoFuncionalTradutorField;
         
-        private SreIntBancClient.ReservaNomeEmpresarial[] ReservaNomeEmpresarialField;
-        
         private SreIntBancClient.ProtocoloCaixaUsuarioProtocolo[] RetirantesProtocoloCaixaUsuarioProtocoloField;
         
         private SreIntBancClient.ProtocoloOficio[] RevisoresAverbacaoProtocoloOficioField;
@@ -7921,6 +7968,8 @@ namespace SreIntBancClient
         private bool SenhaTemporariaField;
         
         private string TelefoneField;
+        
+        private SreIntBancClient.TipoExigencia[] TipoExigenciaField;
         
         private int TipoUsuarioField;
         
@@ -8234,6 +8283,19 @@ namespace SreIntBancClient
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public SreIntBancClient.EmissorCertidaoDisponivel[] EmissorCertidaoDisponivel
+        {
+            get
+            {
+                return this.EmissorCertidaoDisponivelField;
+            }
+            set
+            {
+                this.EmissorCertidaoDisponivelField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public SreIntBancClient.Empresa[] Empresa
         {
             get
@@ -8416,6 +8478,19 @@ namespace SreIntBancClient
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public SreIntBancClient.GrupoExigencia[] GrupoExigencia
+        {
+            get
+            {
+                return this.GrupoExigenciaField;
+            }
+            set
+            {
+                this.GrupoExigenciaField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public SreIntBancClient.GuiaAndamento[] GuiaAndamento
         {
             get
@@ -8425,19 +8500,6 @@ namespace SreIntBancClient
             set
             {
                 this.GuiaAndamentoField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string HashSenha
-        {
-            get
-            {
-                return this.HashSenhaField;
-            }
-            set
-            {
-                this.HashSenhaField = value;
             }
         }
         
@@ -9079,19 +9141,6 @@ namespace SreIntBancClient
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SreIntBancClient.ReservaNomeEmpresarial[] ReservaNomeEmpresarial
-        {
-            get
-            {
-                return this.ReservaNomeEmpresarialField;
-            }
-            set
-            {
-                this.ReservaNomeEmpresarialField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
         public SreIntBancClient.ProtocoloCaixaUsuarioProtocolo[] RetirantesProtocoloCaixaUsuarioProtocolo
         {
             get
@@ -9153,6 +9202,19 @@ namespace SreIntBancClient
             set
             {
                 this.TelefoneField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SreIntBancClient.TipoExigencia[] TipoExigencia
+        {
+            get
+            {
+                return this.TipoExigenciaField;
+            }
+            set
+            {
+                this.TipoExigenciaField = value;
             }
         }
         
@@ -9236,7 +9298,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloOficio", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloOficio : SreIntBancClient.Protocolo
     {
@@ -9738,7 +9800,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloOficioAverbacao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloOficioAverbacao : SreIntBancClient.EntidadeBase
     {
@@ -9925,7 +9987,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloOficioAverbacaoDocumento", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloOficioAverbacaoDocumento : SreIntBancClient.EntidadeBase
     {
@@ -10202,7 +10264,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloOficioAverbacaoDocumentoPagina", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloOficioAverbacaoDocumentoPagina : SreIntBancClient.EntidadeBase
     {
@@ -10479,7 +10541,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TipoImagemProtocolo", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class TipoImagemProtocolo : SreIntBancClient.EntidadeBase
     {
@@ -10531,7 +10593,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloOficioAverbacaoTramitacao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloOficioAverbacaoTramitacao : SreIntBancClient.EntidadeBase
     {
@@ -10763,7 +10825,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="OficioModeloTipo", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class OficioModeloTipo : SreIntBancClient.EntidadeBase
     {
@@ -10815,7 +10877,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Setor", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class Setor : SreIntBancClient.EntidadeBase
     {
@@ -11422,7 +11484,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AnaliseRegistroObservacao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class AnaliseRegistroObservacao : SreIntBancClient.EntidadeBase
     {
@@ -11579,7 +11641,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AnaliseRegistro", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class AnaliseRegistro : SreIntBancClient.EntidadeBase
     {
@@ -11796,7 +11858,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Funcionario", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class Funcionario : SreIntBancClient.EntidadeBase
     {
@@ -11884,6 +11946,8 @@ namespace SreIntBancClient
         private string EmailCorporativoField;
         
         private string EmailParticularField;
+        
+        private SreIntBancClient.EmissorCertidaoDisponivel EmissorCertidaoDisponivelField;
         
         private bool EmiteCertidaoField;
         
@@ -12628,6 +12692,19 @@ namespace SreIntBancClient
             set
             {
                 this.EmailParticularField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SreIntBancClient.EmissorCertidaoDisponivel EmissorCertidaoDisponivel
+        {
+            get
+            {
+                return this.EmissorCertidaoDisponivelField;
+            }
+            set
+            {
+                this.EmissorCertidaoDisponivelField = value;
             }
         }
         
@@ -13933,7 +14010,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Arquivamento", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SreIntBancClient.ArquivamentoTradutor))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SreIntBancClient.ArquivamentoEmpresa))]
@@ -14336,7 +14413,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ArquivamentoAtoEvento", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ArquivamentoAtoEvento : SreIntBancClient.EntidadeBase
     {
@@ -14463,7 +14540,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloCertidaoEspecificaArquivamento", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloCertidaoEspecificaArquivamento : SreIntBancClient.EntidadeBase
     {
@@ -14560,7 +14637,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloCertidao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SreIntBancClient.ProtocoloCertidaoInteiroTeor))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SreIntBancClient.ProtocoloCertidaoOnlineNadaConsta))]
@@ -14871,7 +14948,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="CertidaoPasta", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class CertidaoPasta : SreIntBancClient.EntidadeBase
     {
@@ -14968,7 +15045,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloAutenticacao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloAutenticacao : SreIntBancClient.EntidadeBase
     {
@@ -15395,7 +15472,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Distribuicao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class Distribuicao : SreIntBancClient.EntidadeBase
     {
@@ -15507,7 +15584,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EmpresaProtocolo", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class EmpresaProtocolo : SreIntBancClient.EntidadeBase
     {
@@ -15709,7 +15786,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Empresa", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class Empresa : SreIntBancClient.EntidadeBase
     {
@@ -17891,7 +17968,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EmpresaAnotacao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class EmpresaAnotacao : SreIntBancClient.EntidadeBase
     {
@@ -18168,7 +18245,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EmpresaAnotacaoErroMaterial", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class EmpresaAnotacaoErroMaterial : SreIntBancClient.EntidadeBase
     {
@@ -18280,7 +18357,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="MotivoErroMaterial", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class MotivoErroMaterial : SreIntBancClient.EntidadeBase
     {
@@ -18362,7 +18439,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ArmazemGeral", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ArmazemGeral : SreIntBancClient.EntidadeBase
     {
@@ -18774,7 +18851,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ArmazemGeralApostilamento", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ArmazemGeralApostilamento : SreIntBancClient.EntidadeBase
     {
@@ -18946,7 +19023,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ArmazemGeralApostilamentoTipo", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ArmazemGeralApostilamentoTipo : SreIntBancClient.EntidadeBase
     {
@@ -19118,7 +19195,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TipoApostilamento", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class TipoApostilamento : SreIntBancClient.EntidadeBase
     {
@@ -19200,7 +19277,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ArmazemGeralUnidadeArmazenadora", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ArmazemGeralUnidadeArmazenadora : SreIntBancClient.EntidadeBase
     {
@@ -19507,7 +19584,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ArmazemGeralUnidadeArmazenadoraFiel", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ArmazemGeralUnidadeArmazenadoraFiel : SreIntBancClient.EntidadeBase
     {
@@ -19769,7 +19846,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ArmazemGeralBaixaFiel", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ArmazemGeralBaixaFiel : SreIntBancClient.EntidadeBase
     {
@@ -19926,7 +20003,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloArmazemGeral", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloArmazemGeral : SreIntBancClient.Protocolo
     {
@@ -20083,7 +20160,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Carteira", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SreIntBancClient.TradutorCarteira))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SreIntBancClient.LeiloeiroCarteira))]
@@ -20334,7 +20411,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="CarteiraImpressao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class CarteiraImpressao : SreIntBancClient.EntidadeBase
     {
@@ -20431,7 +20508,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TipoCarteira", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class TipoCarteira : SreIntBancClient.EntidadeBase
     {
@@ -20498,7 +20575,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloCarteiraPessoa", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloCarteiraPessoa : SreIntBancClient.EntidadeBase
     {
@@ -21060,7 +21137,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Estado", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class Estado : SreIntBancClient.EntidadeBase
     {
@@ -21832,7 +21909,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ACFAdHocEndereco", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ACFAdHocEndereco : SreIntBancClient.EntidadeBase
     {
@@ -22259,7 +22336,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ACFAdHoc", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ACFAdHoc : SreIntBancClient.EntidadeBase
     {
@@ -22611,7 +22688,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ACFAdHocProtocolo", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ACFAdHocProtocolo : SreIntBancClient.EntidadeBase
     {
@@ -22768,7 +22845,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloAdHoc", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloAdHoc : SreIntBancClient.Protocolo
     {
@@ -22880,7 +22957,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ACFAdHocMatricula", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ACFAdHocMatricula : SreIntBancClient.EntidadeBase
     {
@@ -23172,7 +23249,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ACFAdHocMatriculaIdioma", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ACFAdHocMatriculaIdioma : SreIntBancClient.EntidadeBase
     {
@@ -23269,7 +23346,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Idioma", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class Idioma : SreIntBancClient.EntidadeBase
     {
@@ -23336,7 +23413,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TipoNomeacao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class TipoNomeacao : SreIntBancClient.EntidadeBase
     {
@@ -23433,7 +23510,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TradutorMatriculaIdioma", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class TradutorMatriculaIdioma : SreIntBancClient.EntidadeBase
     {
@@ -23725,7 +23802,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloTradutor", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SreIntBancClient.ProtocoloTradutorLivro))]
     public partial class ProtocoloTradutor : SreIntBancClient.Protocolo
@@ -23898,7 +23975,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TradutorImposto", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class TradutorImposto : SreIntBancClient.EntidadeBase
     {
@@ -24025,7 +24102,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Tradutor", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class Tradutor : SreIntBancClient.EntidadeBase
     {
@@ -24602,7 +24679,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ArquivamentoTradutor", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ArquivamentoTradutor : SreIntBancClient.Arquivamento
     {
@@ -24654,7 +24731,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TradutorCarteira", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class TradutorCarteira : SreIntBancClient.Carteira
     {
@@ -24736,7 +24813,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TradutorEnderecoComercial", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class TradutorEnderecoComercial : SreIntBancClient.EntidadeBase
     {
@@ -25178,7 +25255,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Municipio", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class Municipio : SreIntBancClient.EntidadeBase
     {
@@ -25890,7 +25967,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AgenteFiduciario", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class AgenteFiduciario : SreIntBancClient.EntidadeBase
     {
@@ -26272,7 +26349,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="DebentureEmissao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class DebentureEmissao : SreIntBancClient.EntidadeBase
     {
@@ -26624,7 +26701,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="FormaDebenture", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class FormaDebenture : SreIntBancClient.EntidadeBase
     {
@@ -26691,7 +26768,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloCertidaoInteiroTeorArquivamento", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloCertidaoInteiroTeorArquivamento : SreIntBancClient.EntidadeBase
     {
@@ -26818,7 +26895,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloCertidaoInteiroTeor", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloCertidaoInteiroTeor : SreIntBancClient.ProtocoloCertidao
     {
@@ -26855,7 +26932,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="DebentureSerie", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class DebentureSerie : SreIntBancClient.EntidadeBase
     {
@@ -27102,7 +27179,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ClasseDebenture", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ClasseDebenture : SreIntBancClient.EntidadeBase
     {
@@ -27169,7 +27246,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EspecieGarantiaDebenture", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class EspecieGarantiaDebenture : SreIntBancClient.EntidadeBase
     {
@@ -27236,7 +27313,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TipoPrazoDebenture", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class TipoPrazoDebenture : SreIntBancClient.EntidadeBase
     {
@@ -27288,7 +27365,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Pais", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class Pais : SreIntBancClient.EntidadeBase
     {
@@ -27925,7 +28002,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ArmazemGeralFiel", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ArmazemGeralFiel : SreIntBancClient.EntidadeBase
     {
@@ -28547,7 +28624,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EstadoCivil", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class EstadoCivil : SreIntBancClient.EntidadeBase
     {
@@ -28644,7 +28721,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="OrgaoExpedidor", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class OrgaoExpedidor : SreIntBancClient.EntidadeBase
     {
@@ -28771,7 +28848,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloProcuracaoAssinante", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloProcuracaoAssinante : SreIntBancClient.EntidadeBase
     {
@@ -29618,7 +29695,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Condicao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class Condicao : SreIntBancClient.EntidadeBase
     {
@@ -29880,7 +29957,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloEmpresaLivroAssinante", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloEmpresaLivroAssinante : SreIntBancClient.EntidadeBase
     {
@@ -30097,7 +30174,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EmpresaPessoaCondicao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class EmpresaPessoaCondicao : SreIntBancClient.EntidadeBase
     {
@@ -30314,7 +30391,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EmpresaPessoa", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SreIntBancClient.EmpresaPessoaFisica))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SreIntBancClient.EmpresaPessoaJuridica))]
@@ -31133,7 +31210,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EmpresaPessoaChavePublica", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class EmpresaPessoaChavePublica : SreIntBancClient.EntidadeBase
     {
@@ -31230,7 +31307,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EmpresaCondominioCoProprietario", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class EmpresaCondominioCoProprietario : SreIntBancClient.EntidadeBase
     {
@@ -31357,7 +31434,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EmpresaCondominio", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class EmpresaCondominio : SreIntBancClient.EntidadeBase
     {
@@ -31544,7 +31621,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EmpresaFalenciaSocio", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class EmpresaFalenciaSocio : SreIntBancClient.EntidadeBase
     {
@@ -31731,7 +31808,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EmpresaFalenciaSocioEfeito", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class EmpresaFalenciaSocioEfeito : SreIntBancClient.EntidadeBase
     {
@@ -31858,7 +31935,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EfeitoCondenacao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class EfeitoCondenacao : SreIntBancClient.EntidadeBase
     {
@@ -31925,7 +32002,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EmpresaFalencia", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class EmpresaFalencia : SreIntBancClient.EntidadeBase
     {
@@ -32067,7 +32144,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloEmpresaFichaPessoa", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SreIntBancClient.ProtocoloEmpresaFichaPessoaFisica))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SreIntBancClient.ProtocoloEmpresaFichaPessoaJuridica))]
@@ -32841,7 +32918,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloEmpresaFichaPessoaCondicao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloEmpresaFichaPessoaCondicao : SreIntBancClient.EntidadeBase
     {
@@ -33073,7 +33150,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloEmpresaFichaPessoaChavePublica", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloEmpresaFichaPessoaChavePublica : SreIntBancClient.EntidadeBase
     {
@@ -33185,7 +33262,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloEmpresaFichaCondominioCoProprietario", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloEmpresaFichaCondominioCoProprietario : SreIntBancClient.EntidadeBase
     {
@@ -33327,7 +33404,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloEmpresaFichaCondominio", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloEmpresaFichaCondominio : SreIntBancClient.EntidadeBase
     {
@@ -33529,7 +33606,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloEmpresaFicha", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloEmpresaFicha : SreIntBancClient.EntidadeBase
     {
@@ -35471,7 +35548,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AcaoFicha", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class AcaoFicha : SreIntBancClient.EntidadeBase
     {
@@ -35523,7 +35600,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloEmpresaFichaAdvogado", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloEmpresaFichaAdvogado : SreIntBancClient.EntidadeBase
     {
@@ -35680,7 +35757,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloEmpresaFichaAdvogadoTelefone", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloEmpresaFichaAdvogadoTelefone : SreIntBancClient.EntidadeBase
     {
@@ -35792,7 +35869,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloEmpresaFichaContador", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloEmpresaFichaContador : SreIntBancClient.EntidadeBase
     {
@@ -36444,7 +36521,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="CRCClassificacao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class CRCClassificacao : SreIntBancClient.EntidadeBase
     {
@@ -36526,7 +36603,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="CRCTipo", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class CRCTipo : SreIntBancClient.EntidadeBase
     {
@@ -36608,7 +36685,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloEmpresaFichaContadorChavePublica", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloEmpresaFichaContadorChavePublica : SreIntBancClient.EntidadeBase
     {
@@ -36675,7 +36752,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloEmpresaFichaContadorTelefone", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloEmpresaFichaContadorTelefone : SreIntBancClient.EntidadeBase
     {
@@ -36832,7 +36909,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TipoLogradouro", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class TipoLogradouro : SreIntBancClient.EntidadeBase
     {
@@ -37349,7 +37426,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ArmazemGeralUnidadeArmazenadoraEndereco", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ArmazemGeralUnidadeArmazenadoraEndereco : SreIntBancClient.EntidadeBase
     {
@@ -37761,7 +37838,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ArmazemGeralUnidadeArmazenadoraTelefone", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ArmazemGeralUnidadeArmazenadoraTelefone : SreIntBancClient.EntidadeBase
     {
@@ -37888,7 +37965,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Destinatario", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class Destinatario : SreIntBancClient.EntidadeBase
     {
@@ -38225,7 +38302,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="DestinatarioTelefone", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class DestinatarioTelefone : SreIntBancClient.EntidadeBase
     {
@@ -38352,7 +38429,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="OrgaoExportacao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class OrgaoExportacao : SreIntBancClient.EntidadeBase
     {
@@ -38569,7 +38646,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EmpresaContador", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class EmpresaContador : SreIntBancClient.EntidadeBase
     {
@@ -39206,7 +39283,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EmpresaContadorChavePublica", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class EmpresaContadorChavePublica : SreIntBancClient.EntidadeBase
     {
@@ -39303,7 +39380,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EmpresaContadorTelefone", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class EmpresaContadorTelefone : SreIntBancClient.EntidadeBase
     {
@@ -39445,7 +39522,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Escritorio", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class Escritorio : SreIntBancClient.EntidadeBase
     {
@@ -40157,7 +40234,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EscritorioTipoJuridicoPorteEmpresarial", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class EscritorioTipoJuridicoPorteEmpresarial : SreIntBancClient.EntidadeBase
     {
@@ -40329,7 +40406,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TipoJuridicoPorteEmpresarial", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class TipoJuridicoPorteEmpresarial : SreIntBancClient.EntidadeBase
     {
@@ -40681,7 +40758,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AtoEventoTipoJuridicoPorteEmpresarial", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class AtoEventoTipoJuridicoPorteEmpresarial : SreIntBancClient.EntidadeBase
     {
@@ -40725,6 +40802,10 @@ namespace SreIntBancClient
         private decimal ValorJuntaField;
         
         private System.Nullable<decimal> ValorJuntaAntigoField;
+        
+        private decimal ValorJuntaDeferimentoAutomaticoField;
+        
+        private decimal ValorJuntaDeferimentoAutomaticoAntigoField;
         
         private decimal ValorJuntaDigitalField;
         
@@ -40999,6 +41080,32 @@ namespace SreIntBancClient
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal ValorJuntaDeferimentoAutomatico
+        {
+            get
+            {
+                return this.ValorJuntaDeferimentoAutomaticoField;
+            }
+            set
+            {
+                this.ValorJuntaDeferimentoAutomaticoField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal ValorJuntaDeferimentoAutomaticoAntigo
+        {
+            get
+            {
+                return this.ValorJuntaDeferimentoAutomaticoAntigoField;
+            }
+            set
+            {
+                this.ValorJuntaDeferimentoAutomaticoAntigoField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public decimal ValorJuntaDigital
         {
             get
@@ -41078,7 +41185,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="BoletoBancarioAvulso", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class BoletoBancarioAvulso : SreIntBancClient.EntidadeBase
     {
@@ -41235,7 +41342,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AtoEventoTipoJuridicoPorteEmpresarialValoresHistorico", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class AtoEventoTipoJuridicoPorteEmpresarialValoresHistorico : SreIntBancClient.EntidadeBase
     {
@@ -41407,7 +41514,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TipoDecisao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class TipoDecisao : SreIntBancClient.EntidadeBase
     {
@@ -41489,7 +41596,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TipoJuridicoPorteEmpresarialCondicao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class TipoJuridicoPorteEmpresarialCondicao : SreIntBancClient.EntidadeBase
     {
@@ -41601,7 +41708,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="PorteEmpresarial", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class PorteEmpresarial : SreIntBancClient.EntidadeBase
     {
@@ -41728,7 +41835,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TipoJuridico", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class TipoJuridico : SreIntBancClient.EntidadeBase
     {
@@ -41885,7 +41992,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="PedidoReserva", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class PedidoReserva : SreIntBancClient.EntidadeBase
     {
@@ -42192,7 +42299,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="PedidoReservaCNAE", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class PedidoReservaCNAE : SreIntBancClient.EntidadeBase
     {
@@ -42304,7 +42411,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="SubClasse", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class SubClasse : SreIntBancClient.EntidadeBase
     {
@@ -42521,7 +42628,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Classe", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class Classe : SreIntBancClient.EntidadeBase
     {
@@ -42648,7 +42755,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Grupo", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class Grupo : SreIntBancClient.EntidadeBase
     {
@@ -42775,7 +42882,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Divisao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class Divisao : SreIntBancClient.EntidadeBase
     {
@@ -42902,7 +43009,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Secao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class Secao : SreIntBancClient.EntidadeBase
     {
@@ -42999,7 +43106,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="SubClasseDetalhe", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class SubClasseDetalhe : SreIntBancClient.EntidadeBase
     {
@@ -43081,7 +43188,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EmpresaAtividadeEconomica", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class EmpresaAtividadeEconomica : SreIntBancClient.EntidadeBase
     {
@@ -43223,7 +43330,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloEmpresaFichaAtividadeEconomica", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloEmpresaFichaAtividadeEconomica : SreIntBancClient.EntidadeBase
     {
@@ -43410,7 +43517,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Abrangencia", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class Abrangencia : SreIntBancClient.EntidadeBase
     {
@@ -43492,7 +43599,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="PedidoReservaNome", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class PedidoReservaNome : SreIntBancClient.EntidadeBase
     {
@@ -43634,10 +43741,12 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ReservaNomeEmpresarial", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ReservaNomeEmpresarial : SreIntBancClient.EntidadeBase
     {
+        
+        private string CNPJField;
         
         private string CodigoFoneticoField;
         
@@ -43661,7 +43770,11 @@ namespace SreIntBancClient
         
         private System.Nullable<bool> LiberadoField;
         
+        private string NaturezaJuridicaField;
+        
         private string NomeEmpresarialField;
+        
+        private string NomeReservaField;
         
         private string NomeSocioField;
         
@@ -43687,13 +43800,22 @@ namespace SreIntBancClient
         
         private byte TipoReservaIdField;
         
-        private SreIntBancClient.Usuario UsuarioField;
-        
-        private System.Nullable<int> UsuarioIdField;
-        
         private SreIntBancClient.Usuario UsuarioJulgadorField;
         
         private System.Nullable<int> UsuarioJulgadorIdField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CNPJ
+        {
+            get
+            {
+                return this.CNPJField;
+            }
+            set
+            {
+                this.CNPJField = value;
+            }
+        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string CodigoFonetico
@@ -43839,6 +43961,19 @@ namespace SreIntBancClient
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NaturezaJuridica
+        {
+            get
+            {
+                return this.NaturezaJuridicaField;
+            }
+            set
+            {
+                this.NaturezaJuridicaField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string NomeEmpresarial
         {
             get
@@ -43848,6 +43983,19 @@ namespace SreIntBancClient
             set
             {
                 this.NomeEmpresarialField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NomeReserva
+        {
+            get
+            {
+                return this.NomeReservaField;
+            }
+            set
+            {
+                this.NomeReservaField = value;
             }
         }
         
@@ -44008,32 +44156,6 @@ namespace SreIntBancClient
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SreIntBancClient.Usuario Usuario
-        {
-            get
-            {
-                return this.UsuarioField;
-            }
-            set
-            {
-                this.UsuarioField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> UsuarioId
-        {
-            get
-            {
-                return this.UsuarioIdField;
-            }
-            set
-            {
-                this.UsuarioIdField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
         public SreIntBancClient.Usuario UsuarioJulgador
         {
             get
@@ -44061,7 +44183,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ReservaNomeEmpresarialLiberado", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ReservaNomeEmpresarialLiberado : SreIntBancClient.EntidadeBase
     {
@@ -44173,7 +44295,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ReservaNomeEmpresarialPalavra", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ReservaNomeEmpresarialPalavra : SreIntBancClient.EntidadeBase
     {
@@ -44285,7 +44407,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Palavra", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class Palavra : SreIntBancClient.EntidadeBase
     {
@@ -44412,7 +44534,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EmpresaNomePalavra", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class EmpresaNomePalavra : SreIntBancClient.EntidadeBase
     {
@@ -44524,7 +44646,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EmpresaNome", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class EmpresaNome : SreIntBancClient.EntidadeBase
     {
@@ -44552,6 +44674,8 @@ namespace SreIntBancClient
         private int IdField;
         
         private string NomeEmpresarialField;
+        
+        private string NomeReservaField;
         
         private SreIntBancClient.OficioEmpresa[] OficioEmpresaField;
         
@@ -44722,6 +44846,19 @@ namespace SreIntBancClient
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NomeReserva
+        {
+            get
+            {
+                return this.NomeReservaField;
+            }
+            set
+            {
+                this.NomeReservaField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public SreIntBancClient.OficioEmpresa[] OficioEmpresa
         {
             get
@@ -44801,7 +44938,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ArquivamentoEmpresa", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ArquivamentoEmpresa : SreIntBancClient.Arquivamento
     {
@@ -44988,7 +45125,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EmpresaHistoricoCapital", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class EmpresaHistoricoCapital : SreIntBancClient.EntidadeBase
     {
@@ -45220,7 +45357,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Oficio", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class Oficio : SreIntBancClient.EntidadeBase
     {
@@ -45752,7 +45889,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="CargoLotacao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class CargoLotacao : SreIntBancClient.EntidadeBase
     {
@@ -45849,7 +45986,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Titulo", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class Titulo : SreIntBancClient.EntidadeBase
     {
@@ -45946,7 +46083,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Genero", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class Genero : SreIntBancClient.EntidadeBase
     {
@@ -46013,7 +46150,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="OficioEmpresa", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class OficioEmpresa : SreIntBancClient.EntidadeBase
     {
@@ -46170,7 +46307,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="OficioEmpresaAtoEvento", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class OficioEmpresaAtoEvento : SreIntBancClient.EntidadeBase
     {
@@ -46282,7 +46419,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloOficioEmpresa", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloOficioEmpresa : SreIntBancClient.EntidadeBase
     {
@@ -46379,7 +46516,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="OficioStatusHistorico", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class OficioStatusHistorico : SreIntBancClient.EntidadeBase
     {
@@ -46536,7 +46673,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="OficioStatus", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class OficioStatus : SreIntBancClient.EntidadeBase
     {
@@ -46603,7 +46740,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="OficioImagem", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class OficioImagem : SreIntBancClient.EntidadeBase
     {
@@ -46835,7 +46972,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="OficioImagemAssinatura", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class OficioImagemAssinatura : SreIntBancClient.EntidadeBase
     {
@@ -46947,7 +47084,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Lotacao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class Lotacao : SreIntBancClient.EntidadeBase
     {
@@ -47434,7 +47571,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="OrgaoLotacao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class OrgaoLotacao : SreIntBancClient.EntidadeBase
     {
@@ -47546,7 +47683,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="LotacaoTelefone", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class LotacaoTelefone : SreIntBancClient.EntidadeBase
     {
@@ -47673,7 +47810,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="OficioImagemMarcadorPersonalizado", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class OficioImagemMarcadorPersonalizado : SreIntBancClient.EntidadeBase
     {
@@ -47800,7 +47937,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="PessoaOficioRequerente", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class PessoaOficioRequerente : SreIntBancClient.EntidadeBase
     {
@@ -47897,7 +48034,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Pessoa", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class Pessoa : SreIntBancClient.EntidadeBase
     {
@@ -48429,7 +48566,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="PessoaImpedida", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class PessoaImpedida : SreIntBancClient.EntidadeBase
     {
@@ -48616,7 +48753,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TipoImpedimento", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class TipoImpedimento : SreIntBancClient.EntidadeBase
     {
@@ -48743,7 +48880,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="OficioPessoaAtoEvento", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class OficioPessoaAtoEvento : SreIntBancClient.EntidadeBase
     {
@@ -48885,7 +49022,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="OficioPessoa", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class OficioPessoa : SreIntBancClient.EntidadeBase
     {
@@ -49012,7 +49149,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloOficioPessoa", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloOficioPessoa : SreIntBancClient.EntidadeBase
     {
@@ -49109,7 +49246,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="PessoaTelefone", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class PessoaTelefone : SreIntBancClient.EntidadeBase
     {
@@ -49236,7 +49373,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="OficioResposta", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class OficioResposta : SreIntBancClient.EntidadeBase
     {
@@ -49528,7 +49665,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="OficioTramitacao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class OficioTramitacao : SreIntBancClient.EntidadeBase
     {
@@ -49790,7 +49927,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="OficioEtapaExecucao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class OficioEtapaExecucao : SreIntBancClient.EntidadeBase
     {
@@ -49857,7 +49994,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EmpresaHistoricoTransformacao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class EmpresaHistoricoTransformacao : SreIntBancClient.EntidadeBase
     {
@@ -50074,7 +50211,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TipoNomeEmpresarial", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class TipoNomeEmpresarial : SreIntBancClient.EntidadeBase
     {
@@ -50141,7 +50278,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EmpresaPessoaPalavra", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class EmpresaPessoaPalavra : SreIntBancClient.EntidadeBase
     {
@@ -50253,7 +50390,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="PedidoReservaSocio", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class PedidoReservaSocio : SreIntBancClient.EntidadeBase
     {
@@ -50350,7 +50487,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="PedidoReservaStatusHistorico", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class PedidoReservaStatusHistorico : SreIntBancClient.EntidadeBase
     {
@@ -50492,7 +50629,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="StatusPedidoReserva", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class StatusPedidoReserva : SreIntBancClient.EntidadeBase
     {
@@ -50544,7 +50681,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TipoJuridicoQualificacao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class TipoJuridicoQualificacao : SreIntBancClient.EntidadeBase
     {
@@ -50641,7 +50778,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Qualificacao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class Qualificacao : SreIntBancClient.EntidadeBase
     {
@@ -50768,7 +50905,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TipoProtocolo", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class TipoProtocolo : SreIntBancClient.EntidadeBase
     {
@@ -50820,7 +50957,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="FeriadoEscritorio", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class FeriadoEscritorio : SreIntBancClient.EntidadeBase
     {
@@ -50917,7 +51054,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Feriado", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class Feriado : SreIntBancClient.EntidadeBase
     {
@@ -51029,7 +51166,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="FuncionarioEscritorio", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class FuncionarioEscritorio : SreIntBancClient.EntidadeBase
     {
@@ -51141,7 +51278,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EscritorioAtendimento", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class EscritorioAtendimento : SreIntBancClient.EntidadeBase
     {
@@ -51253,7 +51390,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EscritorioMunicipio", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class EscritorioMunicipio : SreIntBancClient.EntidadeBase
     {
@@ -51350,7 +51487,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EscritorioOutroContato", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class EscritorioOutroContato : SreIntBancClient.EntidadeBase
     {
@@ -51507,7 +51644,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EscritorioOutroContatoTelefone", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class EscritorioOutroContatoTelefone : SreIntBancClient.EntidadeBase
     {
@@ -51634,7 +51771,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloLocalizacao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloLocalizacao : SreIntBancClient.EntidadeBase
     {
@@ -52016,7 +52153,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="GuiaAndamentoProtocolo", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class GuiaAndamentoProtocolo : SreIntBancClient.EntidadeBase
     {
@@ -52113,7 +52250,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="GuiaAndamento", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class GuiaAndamento : SreIntBancClient.EntidadeBase
     {
@@ -52225,7 +52362,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="StatusProtocolo", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class StatusProtocolo : SreIntBancClient.EntidadeBase
     {
@@ -52322,7 +52459,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EscritorioTelefone", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class EscritorioTelefone : SreIntBancClient.EntidadeBase
     {
@@ -52449,7 +52586,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TipoEscritorio", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class TipoEscritorio : SreIntBancClient.EntidadeBase
     {
@@ -52531,7 +52668,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="UsuarioEscritorioRestricao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class UsuarioEscritorioRestricao : SreIntBancClient.EntidadeBase
     {
@@ -52628,7 +52765,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="JuntaComercial", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class JuntaComercial : SreIntBancClient.EntidadeBase
     {
@@ -53010,7 +53147,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="JuntaComercialContato", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class JuntaComercialContato : SreIntBancClient.EntidadeBase
     {
@@ -53137,7 +53274,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="JuntaComercialTelefone", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class JuntaComercialTelefone : SreIntBancClient.EntidadeBase
     {
@@ -53264,7 +53401,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="JuntaComercialGestor", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class JuntaComercialGestor : SreIntBancClient.EntidadeBase
     {
@@ -53451,7 +53588,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="JuntaComercialGestorTelefone", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class JuntaComercialGestorTelefone : SreIntBancClient.EntidadeBase
     {
@@ -53578,7 +53715,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="JuntaComercialOutroContato", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class JuntaComercialOutroContato : SreIntBancClient.EntidadeBase
     {
@@ -53735,7 +53872,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="JuntaComercialOutroContatoTelefone", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class JuntaComercialOutroContatoTelefone : SreIntBancClient.EntidadeBase
     {
@@ -53862,7 +53999,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="LeiloeiroEnderecoComercial", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class LeiloeiroEnderecoComercial : SreIntBancClient.EntidadeBase
     {
@@ -54304,7 +54441,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Leiloeiro", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class Leiloeiro : SreIntBancClient.EntidadeBase
     {
@@ -54941,7 +55078,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ArquivamentoLeiloeiro", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ArquivamentoLeiloeiro : SreIntBancClient.Arquivamento
     {
@@ -54993,7 +55130,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="LeiloeiroCarteira", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class LeiloeiroCarteira : SreIntBancClient.Carteira
     {
@@ -55075,7 +55212,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloLeiloeiro", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SreIntBancClient.ProtocoloLeiloeiroLivro))]
     public partial class ProtocoloLeiloeiro : SreIntBancClient.Protocolo
@@ -55323,7 +55460,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="LeiloeiroImposto", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class LeiloeiroImposto : SreIntBancClient.EntidadeBase
     {
@@ -55450,7 +55587,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="LeiloeiroLicenca", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class LeiloeiroLicenca : SreIntBancClient.EntidadeBase
     {
@@ -55592,7 +55729,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="LeiloeiroMatriculaFiancaBancaria", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class LeiloeiroMatriculaFiancaBancaria : SreIntBancClient.EntidadeBase
     {
@@ -55749,7 +55886,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="LeiloeiroMatricula", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class LeiloeiroMatricula : SreIntBancClient.EntidadeBase
     {
@@ -56131,7 +56268,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="LeiloeiroBaixa", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class LeiloeiroBaixa : SreIntBancClient.EntidadeBase
     {
@@ -56408,10 +56545,12 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="MotivoBaixa", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class MotivoBaixa : SreIntBancClient.EntidadeBase
     {
+        
+        private bool AtivoField;
         
         private string DescricaoField;
         
@@ -56420,6 +56559,19 @@ namespace SreIntBancClient
         private int IdField;
         
         private string ObservacaoField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Ativo
+        {
+            get
+            {
+                return this.AtivoField;
+            }
+            set
+            {
+                this.AtivoField = value;
+            }
+        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Descricao
@@ -56475,7 +56627,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="LeiloeiroMatriculaCaucaoDeposito", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class LeiloeiroMatriculaCaucaoDeposito : SreIntBancClient.EntidadeBase
     {
@@ -56692,7 +56844,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Banco", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class Banco : SreIntBancClient.EntidadeBase
     {
@@ -56804,7 +56956,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Moeda", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class Moeda : SreIntBancClient.EntidadeBase
     {
@@ -56946,7 +57098,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TipoOperacaoDeposito", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class TipoOperacaoDeposito : SreIntBancClient.EntidadeBase
     {
@@ -56998,7 +57150,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="LeiloeiroMatriculaSeguroGarantia", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class LeiloeiroMatriculaSeguroGarantia : SreIntBancClient.EntidadeBase
     {
@@ -57014,6 +57166,8 @@ namespace SreIntBancClient
         private SreIntBancClient.LeiloeiroMatricula LeiloeiroMatriculaField;
         
         private int LeiloeiroMatriculaIdField;
+        
+        private bool NotificadoField;
         
         private SreIntBancClient.ProtocoloLeiloeiro ProtocoloLeiloeiroField;
         
@@ -57102,6 +57256,19 @@ namespace SreIntBancClient
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Notificado
+        {
+            get
+            {
+                return this.NotificadoField;
+            }
+            set
+            {
+                this.NotificadoField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public SreIntBancClient.ProtocoloLeiloeiro ProtocoloLeiloeiro
         {
             get
@@ -57155,7 +57322,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Livro", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SreIntBancClient.LivroTradutor))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SreIntBancClient.LivroEmpresa))]
@@ -57795,7 +57962,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ArquivamentoLivro", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ArquivamentoLivro : SreIntBancClient.Arquivamento
     {
@@ -57967,7 +58134,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProcessoAdministrativo", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProcessoAdministrativo : SreIntBancClient.EntidadeBase
     {
@@ -58349,7 +58516,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloRecursoAnexo", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloRecursoAnexo : SreIntBancClient.EntidadeBase
     {
@@ -58476,7 +58643,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloRecurso", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloRecurso : SreIntBancClient.Protocolo
     {
@@ -59233,7 +59400,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="JulgamentoPlenarioContraRazao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class JulgamentoPlenarioContraRazao : SreIntBancClient.EntidadeBase
     {
@@ -59390,7 +59557,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="JulgamentoPlenarioContraRazaoImagem", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class JulgamentoPlenarioContraRazaoImagem : SreIntBancClient.EntidadeBase
     {
@@ -59487,7 +59654,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="JulgamentoPlenarioIntimado", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class JulgamentoPlenarioIntimado : SreIntBancClient.EntidadeBase
     {
@@ -59659,7 +59826,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="JulgamentoPlenarioIntimadoProcurador", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class JulgamentoPlenarioIntimadoProcurador : SreIntBancClient.EntidadeBase
     {
@@ -59771,7 +59938,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="JulgamentoPlenarioIntimadoProcuracao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class JulgamentoPlenarioIntimadoProcuracao : SreIntBancClient.EntidadeBase
     {
@@ -59883,7 +60050,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="JulgamentoPlenarioIntimadoRegistro", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class JulgamentoPlenarioIntimadoRegistro : SreIntBancClient.EntidadeBase
     {
@@ -60025,7 +60192,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TipoRecursoRegistro", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class TipoRecursoRegistro : SreIntBancClient.EntidadeBase
     {
@@ -60107,7 +60274,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloImagem", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloImagem : SreIntBancClient.EntidadeBase
     {
@@ -60369,7 +60536,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloImagemConteudo", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloImagemConteudo : SreIntBancClient.EntidadeBase
     {
@@ -60381,6 +60548,8 @@ namespace SreIntBancClient
         private SreIntBancClient.ProtocoloImagem ProtocoloImagemField;
         
         private int ProtocoloImagemIdField;
+        
+        private byte[] RowVersionField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.Dictionary<string, string[]> Erros
@@ -60433,10 +60602,23 @@ namespace SreIntBancClient
                 this.ProtocoloImagemIdField = value;
             }
         }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public byte[] RowVersion
+        {
+            get
+            {
+                return this.RowVersionField;
+            }
+            set
+            {
+                this.RowVersionField = value;
+            }
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloImagemAssinatura", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloImagemAssinatura : SreIntBancClient.EntidadeBase
     {
@@ -60593,7 +60775,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloRecursoProcuracaoImagem", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloRecursoProcuracaoImagem : SreIntBancClient.EntidadeBase
     {
@@ -60690,7 +60872,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloRecursoProcuracao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloRecursoProcuracao : SreIntBancClient.EntidadeBase
     {
@@ -60832,7 +61014,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloAutenticacaoLimpezaProtocoloAnexo", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloAutenticacaoLimpezaProtocoloAnexo : SreIntBancClient.EntidadeBase
     {
@@ -60989,7 +61171,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloAutenticacaoLimpezaProtocolo", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloAutenticacaoLimpezaProtocolo : SreIntBancClient.EntidadeBase
     {
@@ -61116,7 +61298,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="PautaPlenariaProtocolo", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class PautaPlenariaProtocolo : SreIntBancClient.EntidadeBase
     {
@@ -61273,7 +61455,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="PautaPlenaria", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class PautaPlenaria : SreIntBancClient.EntidadeBase
     {
@@ -61370,7 +61552,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="PautaPlenariaPessoaPresente", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class PautaPlenariaPessoaPresente : SreIntBancClient.EntidadeBase
     {
@@ -61602,7 +61784,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="MotivoDispensa", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class MotivoDispensa : SreIntBancClient.EntidadeBase
     {
@@ -61684,7 +61866,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="JulgamentoPreparacaoPlenaria", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class JulgamentoPreparacaoPlenaria : SreIntBancClient.EntidadeBase
     {
@@ -61901,7 +62083,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AtividadePreparacaoPlenaria", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class AtividadePreparacaoPlenaria : SreIntBancClient.EntidadeBase
     {
@@ -61953,7 +62135,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="StatusAtividadePreparacaoPlenaria", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class StatusAtividadePreparacaoPlenaria : SreIntBancClient.EntidadeBase
     {
@@ -62005,7 +62187,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="JulgamentoProcessoPlenario", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class JulgamentoProcessoPlenario : SreIntBancClient.EntidadeBase
     {
@@ -62267,7 +62449,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="JulgamentoPautaProcesso", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class JulgamentoPautaProcesso : SreIntBancClient.EntidadeBase
     {
@@ -62424,7 +62606,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="JulgamentoPautaPlenaria", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class JulgamentoPautaPlenaria : SreIntBancClient.EntidadeBase
     {
@@ -62656,7 +62838,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="JulgamentoPlenarioPedidoDeVista", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class JulgamentoPlenarioPedidoDeVista : SreIntBancClient.EntidadeBase
     {
@@ -62798,7 +62980,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="JulgamentoPlenarioRegistroPresenca", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class JulgamentoPlenarioRegistroPresenca : SreIntBancClient.EntidadeBase
     {
@@ -63000,7 +63182,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="MotivoRetiradaProcesso", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class MotivoRetiradaProcesso : SreIntBancClient.EntidadeBase
     {
@@ -63067,7 +63249,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="JulgamentoPlenarioVotoProposto", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class JulgamentoPlenarioVotoProposto : SreIntBancClient.EntidadeBase
     {
@@ -63269,7 +63451,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="JulgamentoPlenarioVotoPropostoErroMaterial", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class JulgamentoPlenarioVotoPropostoErroMaterial : SreIntBancClient.EntidadeBase
     {
@@ -63366,7 +63548,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="JulgamentoPlenarioVotoReferenciado", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class JulgamentoPlenarioVotoReferenciado : SreIntBancClient.EntidadeBase
     {
@@ -63478,7 +63660,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TipoResultadoDecisaoPlenaria", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class TipoResultadoDecisaoPlenaria : SreIntBancClient.EntidadeBase
     {
@@ -63575,7 +63757,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloRecursoTelefone", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloRecursoTelefone : SreIntBancClient.EntidadeBase
     {
@@ -63702,7 +63884,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TipoPessoa", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class TipoPessoa : SreIntBancClient.EntidadeBase
     {
@@ -63754,7 +63936,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TipoRecurso", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class TipoRecurso : SreIntBancClient.EntidadeBase
     {
@@ -63821,7 +64003,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TipoSolicitante", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class TipoSolicitante : SreIntBancClient.EntidadeBase
     {
@@ -63903,7 +64085,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AssuntoAdministrativo", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class AssuntoAdministrativo : SreIntBancClient.EntidadeBase
     {
@@ -64000,7 +64182,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="BoletoBancarioProcessoAdministrativoBloqueio", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class BoletoBancarioProcessoAdministrativoBloqueio : SreIntBancClient.EntidadeBase
     {
@@ -64187,7 +64369,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProcessoAdministrativoLocalizacao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProcessoAdministrativoLocalizacao : SreIntBancClient.EntidadeBase
     {
@@ -64464,7 +64646,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="SituacaoProcessoAdministrativo", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class SituacaoProcessoAdministrativo : SreIntBancClient.EntidadeBase
     {
@@ -64561,7 +64743,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProcessoAdministrativoParte", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProcessoAdministrativoParte : SreIntBancClient.EntidadeBase
     {
@@ -64658,7 +64840,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="CategoriaLivro", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class CategoriaLivro : SreIntBancClient.EntidadeBase
     {
@@ -64725,7 +64907,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="LivroHomologacaoRessalva", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class LivroHomologacaoRessalva : SreIntBancClient.EntidadeBase
     {
@@ -64837,7 +65019,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="MotivoRecomposicaoLivro", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class MotivoRecomposicaoLivro : SreIntBancClient.EntidadeBase
     {
@@ -64964,7 +65146,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloLeiloeiroLivro", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloLeiloeiroLivro : SreIntBancClient.ProtocoloLeiloeiro
     {
@@ -65271,7 +65453,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloTradutorLivro", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloTradutorLivro : SreIntBancClient.ProtocoloTradutor
     {
@@ -65548,7 +65730,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="LivroTradutor", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class LivroTradutor : SreIntBancClient.Livro
     {
@@ -65645,7 +65827,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TradutorMatricula", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class TradutorMatricula : SreIntBancClient.EntidadeBase
     {
@@ -65862,7 +66044,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TradutorBaixa", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class TradutorBaixa : SreIntBancClient.EntidadeBase
     {
@@ -66184,7 +66366,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TradutorBaixaPublicacao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class TradutorBaixaPublicacao : SreIntBancClient.EntidadeBase
     {
@@ -66296,7 +66478,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TipoMediaLivro", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class TipoMediaLivro : SreIntBancClient.EntidadeBase
     {
@@ -66348,7 +66530,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TipoObjetoLivro", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class TipoObjetoLivro : SreIntBancClient.EntidadeBase
     {
@@ -66415,7 +66597,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="LivroEmpresa", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class LivroEmpresa : SreIntBancClient.Livro
     {
@@ -66542,7 +66724,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Inspetoria", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class Inspetoria : SreIntBancClient.EntidadeBase
     {
@@ -66624,7 +66806,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="LivroLeiloeiro", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class LivroLeiloeiro : SreIntBancClient.Livro
     {
@@ -66721,7 +66903,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TipoExercicioProfissional", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class TipoExercicioProfissional : SreIntBancClient.EntidadeBase
     {
@@ -66803,7 +66985,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="LeiloeiroProtocolo", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class LeiloeiroProtocolo : SreIntBancClient.EntidadeBase
     {
@@ -66960,7 +67142,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="LeiloeiroComunicado", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class LeiloeiroComunicado : SreIntBancClient.EntidadeBase
     {
@@ -67087,7 +67269,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="LeiloeiroEnderecoDeposito", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class LeiloeiroEnderecoDeposito : SreIntBancClient.EntidadeBase
     {
@@ -67529,7 +67711,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="LeiloeiroEnderecoDepositoTelefone", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class LeiloeiroEnderecoDepositoTelefone : SreIntBancClient.EntidadeBase
     {
@@ -67656,7 +67838,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="LeiloeiroEnderecoResidencial", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class LeiloeiroEnderecoResidencial : SreIntBancClient.EntidadeBase
     {
@@ -68098,7 +68280,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="LeiloeiroEnderecoResidencialTelefone", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class LeiloeiroEnderecoResidencialTelefone : SreIntBancClient.EntidadeBase
     {
@@ -68225,7 +68407,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="LeiloeiroSituacaoFuncionalHistorico", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class LeiloeiroSituacaoFuncionalHistorico : SreIntBancClient.EntidadeBase
     {
@@ -68367,7 +68549,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="SituacaoFuncional", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class SituacaoFuncional : SreIntBancClient.EntidadeBase
     {
@@ -68434,7 +68616,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Leilao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class Leilao : SreIntBancClient.EntidadeBase
     {
@@ -68696,7 +68878,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="LeiloeiroObservacao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class LeiloeiroObservacao : SreIntBancClient.EntidadeBase
     {
@@ -68793,7 +68975,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="PADLeiloeiro", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class PADLeiloeiro : SreIntBancClient.EntidadeBase
     {
@@ -68965,7 +69147,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="PAD", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class PAD : SreIntBancClient.EntidadeBase
     {
@@ -69182,7 +69364,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="PADStatusHistorico", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class PADStatusHistorico : SreIntBancClient.EntidadeBase
     {
@@ -69324,7 +69506,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="StatusPAD", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class StatusPAD : SreIntBancClient.EntidadeBase
     {
@@ -69406,7 +69588,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="PADArmazemGeral", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class PADArmazemGeral : SreIntBancClient.EntidadeBase
     {
@@ -69578,7 +69760,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="PADTradutor", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class PADTradutor : SreIntBancClient.EntidadeBase
     {
@@ -69750,7 +69932,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Profissao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class Profissao : SreIntBancClient.EntidadeBase
     {
@@ -69832,7 +70014,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="LeiloeiroPublicacaoLeilao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class LeiloeiroPublicacaoLeilao : SreIntBancClient.EntidadeBase
     {
@@ -69959,7 +70141,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="LeiloeiroRelatorioMensal", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class LeiloeiroRelatorioMensal : SreIntBancClient.EntidadeBase
     {
@@ -70086,7 +70268,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TipoDocumentoIdentificacao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class TipoDocumentoIdentificacao : SreIntBancClient.EntidadeBase
     {
@@ -70168,7 +70350,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloProcuracaoOutorgado", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloProcuracaoOutorgado : SreIntBancClient.EntidadeBase
     {
@@ -70955,7 +71137,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloProcuracao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloProcuracao : SreIntBancClient.EntidadeBase
     {
@@ -71202,7 +71384,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TipoProcuracao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class TipoProcuracao : SreIntBancClient.EntidadeBase
     {
@@ -71254,7 +71436,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="RegimeDeBem", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class RegimeDeBem : SreIntBancClient.EntidadeBase
     {
@@ -71321,7 +71503,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="LeiloeiroEnderecoComercialTelefone", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class LeiloeiroEnderecoComercialTelefone : SreIntBancClient.EntidadeBase
     {
@@ -71448,7 +71630,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Logradouro", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class Logradouro : SreIntBancClient.EntidadeBase
     {
@@ -71725,7 +71907,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Bairro", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class Bairro : SreIntBancClient.EntidadeBase
     {
@@ -71882,7 +72064,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="GrandeUsuario", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class GrandeUsuario : SreIntBancClient.EntidadeBase
     {
@@ -72084,7 +72266,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TradutorEnderecoResidencial", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class TradutorEnderecoResidencial : SreIntBancClient.EntidadeBase
     {
@@ -72526,7 +72708,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TradutorEnderecoResidencialTelefone", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class TradutorEnderecoResidencialTelefone : SreIntBancClient.EntidadeBase
     {
@@ -72653,7 +72835,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloEmpresaFichaDadosColetaUnica", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloEmpresaFichaDadosColetaUnica : SreIntBancClient.EntidadeBase
     {
@@ -72780,7 +72962,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloEmpresaFichaEventoRFB", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloEmpresaFichaEventoRFB : SreIntBancClient.EntidadeBase
     {
@@ -72892,7 +73074,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EventoRFB", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class EventoRFB : SreIntBancClient.EntidadeBase
     {
@@ -73049,7 +73231,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="GrupoEventoRFB", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class GrupoEventoRFB : SreIntBancClient.EntidadeBase
     {
@@ -73101,7 +73283,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TipoEventoRFB", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class TipoEventoRFB : SreIntBancClient.EntidadeBase
     {
@@ -73153,7 +73335,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloEmpresaFichaFormaAtuacao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloEmpresaFichaFormaAtuacao : SreIntBancClient.EntidadeBase
     {
@@ -73250,7 +73432,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="FormaAtuacao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class FormaAtuacao : SreIntBancClient.EntidadeBase
     {
@@ -73332,7 +73514,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloEmpresaFichaIntegralizacao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloEmpresaFichaIntegralizacao : SreIntBancClient.EntidadeBase
     {
@@ -73609,7 +73791,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="FormaIntegralizacao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class FormaIntegralizacao : SreIntBancClient.EntidadeBase
     {
@@ -73706,7 +73888,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EmpresaIntegralizacao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class EmpresaIntegralizacao : SreIntBancClient.EntidadeBase
     {
@@ -73953,7 +74135,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloEmpresaFichaIntegracao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloEmpresaFichaIntegracao : SreIntBancClient.EntidadeBase
     {
@@ -74140,7 +74322,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloEmpresaFichaIntegracaoRespostas", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloEmpresaFichaIntegracaoRespostas : SreIntBancClient.EntidadeBase
     {
@@ -74327,7 +74509,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="RFBMotivoSituacaoCadastral", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class RFBMotivoSituacaoCadastral : SreIntBancClient.EntidadeBase
     {
@@ -74394,7 +74576,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="RegimePagamento", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class RegimePagamento : SreIntBancClient.EntidadeBase
     {
@@ -74476,7 +74658,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloEmpresaFichaAutenticacaoRespostaS05", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloEmpresaFichaAutenticacaoRespostaS05 : SreIntBancClient.EntidadeBase
     {
@@ -74618,7 +74800,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloEmpresaFichaAutenticacaoRespostaS06", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloEmpresaFichaAutenticacaoRespostaS06 : SreIntBancClient.EntidadeBase
     {
@@ -74745,7 +74927,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Token", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class Token : SreIntBancClient.EntidadeBase
     {
@@ -75172,7 +75354,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TokenStatusHistorico", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class TokenStatusHistorico : SreIntBancClient.EntidadeBase
     {
@@ -75314,7 +75496,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="StatusToken", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class StatusToken : SreIntBancClient.EntidadeBase
     {
@@ -75366,7 +75548,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TokenLiberacao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class TokenLiberacao : SreIntBancClient.EntidadeBase
     {
@@ -75493,7 +75675,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TokenProtocolo", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class TokenProtocolo : SreIntBancClient.EntidadeBase
     {
@@ -75635,7 +75817,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloEmpresaFichaSucessora", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloEmpresaFichaSucessora : SreIntBancClient.EntidadeBase
     {
@@ -75717,7 +75899,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloEmpresaFichaTelefone", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloEmpresaFichaTelefone : SreIntBancClient.EntidadeBase
     {
@@ -75889,7 +76071,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TipoPrazoDuracao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class TipoPrazoDuracao : SreIntBancClient.EntidadeBase
     {
@@ -75971,7 +76153,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TipoSociedade", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class TipoSociedade : SreIntBancClient.EntidadeBase
     {
@@ -76038,7 +76220,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TipoUnidade", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class TipoUnidade : SreIntBancClient.EntidadeBase
     {
@@ -76105,7 +76287,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloEmpresaFichaPessoaRepresentado", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloEmpresaFichaPessoaRepresentado : SreIntBancClient.EntidadeBase
     {
@@ -76337,7 +76519,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloEmpresaFichaPessoaFisica", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloEmpresaFichaPessoaFisica : SreIntBancClient.ProtocoloEmpresaFichaPessoa
     {
@@ -76824,7 +77006,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="FormaEmancipacao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class FormaEmancipacao : SreIntBancClient.EntidadeBase
     {
@@ -76891,7 +77073,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloEmpresaFichaPessoaTelefone", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloEmpresaFichaPessoaTelefone : SreIntBancClient.EntidadeBase
     {
@@ -77063,7 +77245,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloEmpresaFichaPessoaJuridica", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloEmpresaFichaPessoaJuridica : SreIntBancClient.ProtocoloEmpresaFichaPessoa
     {
@@ -77220,7 +77402,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EmpresaPessoaHistoricoCapital", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class EmpresaPessoaHistoricoCapital : SreIntBancClient.EntidadeBase
     {
@@ -77392,7 +77574,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EmpresaPessoaOrdemJudicial", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class EmpresaPessoaOrdemJudicial : SreIntBancClient.EntidadeBase
     {
@@ -77549,7 +77731,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EmpresaPessoaRepresentado", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class EmpresaPessoaRepresentado : SreIntBancClient.EntidadeBase
     {
@@ -77781,7 +77963,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EmpresaPessoaRepresentadoProcuracao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class EmpresaPessoaRepresentadoProcuracao : SreIntBancClient.EntidadeBase
     {
@@ -77893,7 +78075,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EmpresaPessoaFisica", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class EmpresaPessoaFisica : SreIntBancClient.EmpresaPessoa
     {
@@ -78410,7 +78592,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EmpresaPessoaFisicaCarteira", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class EmpresaPessoaFisicaCarteira : SreIntBancClient.Carteira
     {
@@ -78507,7 +78689,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EmpresaPessoaTelefone", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class EmpresaPessoaTelefone : SreIntBancClient.EntidadeBase
     {
@@ -78649,7 +78831,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EmpresaPessoaJuridica", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class EmpresaPessoaJuridica : SreIntBancClient.EmpresaPessoa
     {
@@ -78821,7 +79003,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TipoFiel", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class TipoFiel : SreIntBancClient.EntidadeBase
     {
@@ -78873,7 +79055,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="PaisDocumentoSocioSemVencimento", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class PaisDocumentoSocioSemVencimento : SreIntBancClient.EntidadeBase
     {
@@ -78940,7 +79122,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AgenteFiduciarioTelefone", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class AgenteFiduciarioTelefone : SreIntBancClient.EntidadeBase
     {
@@ -79067,7 +79249,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="FilaEnvioRegistroParaRegin", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class FilaEnvioRegistroParaRegin : SreIntBancClient.EntidadeBase
     {
@@ -79389,7 +79571,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TipoResultadoDecisao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class TipoResultadoDecisao : SreIntBancClient.EntidadeBase
     {
@@ -79486,7 +79668,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="GratuidadeBairro", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class GratuidadeBairro : SreIntBancClient.EntidadeBase
     {
@@ -79598,7 +79780,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Gratuidade", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class Gratuidade : SreIntBancClient.EntidadeBase
     {
@@ -79755,7 +79937,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="GratuidadeMesorregiao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class GratuidadeMesorregiao : SreIntBancClient.EntidadeBase
     {
@@ -79852,7 +80034,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Mesorregiao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class Mesorregiao : SreIntBancClient.EntidadeBase
     {
@@ -79934,7 +80116,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Microrregiao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class Microrregiao : SreIntBancClient.EntidadeBase
     {
@@ -80046,7 +80228,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="GratuidadeMicrorregiao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class GratuidadeMicrorregiao : SreIntBancClient.EntidadeBase
     {
@@ -80143,7 +80325,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="GratuidadeMunicipio", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class GratuidadeMunicipio : SreIntBancClient.EntidadeBase
     {
@@ -80240,7 +80422,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloEmpresaContratoPadrao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloEmpresaContratoPadrao : SreIntBancClient.EntidadeBase
     {
@@ -80472,7 +80654,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloEmpresaContratoPadraoClausula", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloEmpresaContratoPadraoClausula : SreIntBancClient.EntidadeBase
     {
@@ -80554,7 +80736,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="RegiaoGoverno", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class RegiaoGoverno : SreIntBancClient.EntidadeBase
     {
@@ -80636,7 +80818,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TradutorEnderecoComercialTelefone", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class TradutorEnderecoComercialTelefone : SreIntBancClient.EntidadeBase
     {
@@ -80763,7 +80945,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TradutorSituacaoFuncionalHistorico", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class TradutorSituacaoFuncionalHistorico : SreIntBancClient.EntidadeBase
     {
@@ -80905,7 +81087,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TradutorLicenca", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class TradutorLicenca : SreIntBancClient.EntidadeBase
     {
@@ -81047,7 +81229,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TradutorObservacao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class TradutorObservacao : SreIntBancClient.EntidadeBase
     {
@@ -81144,7 +81326,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TradutorProtocolo", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class TradutorProtocolo : SreIntBancClient.EntidadeBase
     {
@@ -81316,7 +81498,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TipoHabilitacao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class TipoHabilitacao : SreIntBancClient.EntidadeBase
     {
@@ -81383,7 +81565,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ArquivamentoACFAdHoc", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ArquivamentoACFAdHoc : SreIntBancClient.Arquivamento
     {
@@ -81435,7 +81617,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ACFAdHocObservacao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ACFAdHocObservacao : SreIntBancClient.EntidadeBase
     {
@@ -81532,7 +81714,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ACFAdHocEnderecoTelefone", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ACFAdHocEnderecoTelefone : SreIntBancClient.EntidadeBase
     {
@@ -81659,7 +81841,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Regiao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class Regiao : SreIntBancClient.EntidadeBase
     {
@@ -81741,7 +81923,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloCarteiraPessoaAnaliseHistorico", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloCarteiraPessoaAnaliseHistorico : SreIntBancClient.EntidadeBase
     {
@@ -81853,7 +82035,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ArmazemGeralFielCarteira", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ArmazemGeralFielCarteira : SreIntBancClient.Carteira
     {
@@ -81935,7 +82117,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ArmazemGeralProtocolo", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ArmazemGeralProtocolo : SreIntBancClient.EntidadeBase
     {
@@ -82092,7 +82274,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TipoAtoNomeacao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class TipoAtoNomeacao : SreIntBancClient.EntidadeBase
     {
@@ -82159,7 +82341,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ArmazemGeralUnidadeArmazenadoraHistorico", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ArmazemGeralUnidadeArmazenadoraHistorico : SreIntBancClient.EntidadeBase
     {
@@ -82331,7 +82513,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ArquivamentoArmazemGeral", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ArquivamentoArmazemGeral : SreIntBancClient.Arquivamento
     {
@@ -82383,7 +82565,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ArmazemGeralBalancoAnual", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ArmazemGeralBalancoAnual : SreIntBancClient.EntidadeBase
     {
@@ -82495,7 +82677,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ArmazemGeralBalancoTrimestral", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ArmazemGeralBalancoTrimestral : SreIntBancClient.EntidadeBase
     {
@@ -82622,7 +82804,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ArmazemGeralCancelamento", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ArmazemGeralCancelamento : SreIntBancClient.EntidadeBase
     {
@@ -82854,7 +83036,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="MotivoCancelamentoArmazem", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class MotivoCancelamentoArmazem : SreIntBancClient.EntidadeBase
     {
@@ -82906,7 +83088,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ArmazemGeralObservacao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ArmazemGeralObservacao : SreIntBancClient.EntidadeBase
     {
@@ -83003,7 +83185,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ArmazemGeralPublicacao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ArmazemGeralPublicacao : SreIntBancClient.EntidadeBase
     {
@@ -83205,7 +83387,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ArmazemGeralRecadastramentoAnual", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ArmazemGeralRecadastramentoAnual : SreIntBancClient.EntidadeBase
     {
@@ -83317,7 +83499,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EmpresaReclamacao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class EmpresaReclamacao : SreIntBancClient.EntidadeBase
     {
@@ -83489,7 +83671,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Reclamacao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class Reclamacao : SreIntBancClient.EntidadeBase
     {
@@ -83856,7 +84038,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ReclamacaoImagem", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ReclamacaoImagem : SreIntBancClient.EntidadeBase
     {
@@ -83968,7 +84150,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ReclamacaoInstrucao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ReclamacaoInstrucao : SreIntBancClient.EntidadeBase
     {
@@ -84080,7 +84262,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="StatusReclamacao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class StatusReclamacao : SreIntBancClient.EntidadeBase
     {
@@ -84132,7 +84314,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ReclamacaoTelefone", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ReclamacaoTelefone : SreIntBancClient.EntidadeBase
     {
@@ -84244,7 +84426,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TipoResultadoReclamacao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class TipoResultadoReclamacao : SreIntBancClient.EntidadeBase
     {
@@ -84356,7 +84538,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EmpresaGrupo", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class EmpresaGrupo : SreIntBancClient.EntidadeBase
     {
@@ -84528,7 +84710,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EmpresaObservacao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class EmpresaObservacao : SreIntBancClient.EntidadeBase
     {
@@ -84655,7 +84837,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloCertidaoEspecificaObservacao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloCertidaoEspecificaObservacao : SreIntBancClient.EntidadeBase
     {
@@ -84752,7 +84934,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EmpresaOrdemJudicial", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class EmpresaOrdemJudicial : SreIntBancClient.EntidadeBase
     {
@@ -85164,7 +85346,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="SituacaoEmpresa", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class SituacaoEmpresa : SreIntBancClient.EntidadeBase
     {
@@ -85261,7 +85443,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="SituacaoStatus", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class SituacaoStatus : SreIntBancClient.EntidadeBase
     {
@@ -85448,7 +85630,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EmpresaSituacaoStatus", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class EmpresaSituacaoStatus : SreIntBancClient.EntidadeBase
     {
@@ -85680,7 +85862,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="StatusEmpresa", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class StatusEmpresa : SreIntBancClient.EntidadeBase
     {
@@ -85792,7 +85974,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EmpresaProntuario", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class EmpresaProntuario : SreIntBancClient.EntidadeBase
     {
@@ -85889,7 +86071,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EmpresaTelefone", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class EmpresaTelefone : SreIntBancClient.EntidadeBase
     {
@@ -86031,7 +86213,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TipoLiquidacao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class TipoLiquidacao : SreIntBancClient.EntidadeBase
     {
@@ -86083,7 +86265,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="JulgamentoProcessoVinculadoJulgador", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class JulgamentoProcessoVinculadoJulgador : SreIntBancClient.EntidadeBase
     {
@@ -86360,7 +86542,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="JulgamentoProcessoVinculado", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class JulgamentoProcessoVinculado : SreIntBancClient.EntidadeBase
     {
@@ -86562,7 +86744,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="JulgamentoProcessoVinculadoJulgadorExigencia", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class JulgamentoProcessoVinculadoJulgadorExigencia : SreIntBancClient.EntidadeBase
     {
@@ -86674,10 +86856,12 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TipoExigencia", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class TipoExigencia : SreIntBancClient.EntidadeBase
     {
+        
+        private System.DateTime DataRegistroField;
         
         private bool DecicaoColegiadaField;
         
@@ -86691,13 +86875,32 @@ namespace SreIntBancClient
         
         private bool ExigeDetalhamentoField;
         
+        private string FundamentacaoLegalField;
+        
         private SreIntBancClient.GrupoExigencia GrupoExigenciaField;
         
-        private byte GrupoExigenciaIdField;
+        private int GrupoExigenciaIdField;
         
         private int IdField;
         
         private bool PermiteCancelarProtocoloField;
+        
+        private int UsuarioIdField;
+        
+        private SreIntBancClient.Usuario UsuarioRegistroField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime DataRegistro
+        {
+            get
+            {
+                return this.DataRegistroField;
+            }
+            set
+            {
+                this.DataRegistroField = value;
+            }
+        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public bool DecicaoColegiada
@@ -86778,6 +86981,19 @@ namespace SreIntBancClient
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FundamentacaoLegal
+        {
+            get
+            {
+                return this.FundamentacaoLegalField;
+            }
+            set
+            {
+                this.FundamentacaoLegalField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public SreIntBancClient.GrupoExigencia GrupoExigencia
         {
             get
@@ -86791,7 +87007,7 @@ namespace SreIntBancClient
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public byte GrupoExigenciaId
+        public int GrupoExigenciaId
         {
             get
             {
@@ -86828,19 +87044,68 @@ namespace SreIntBancClient
                 this.PermiteCancelarProtocoloField = value;
             }
         }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int UsuarioId
+        {
+            get
+            {
+                return this.UsuarioIdField;
+            }
+            set
+            {
+                this.UsuarioIdField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SreIntBancClient.Usuario UsuarioRegistro
+        {
+            get
+            {
+                return this.UsuarioRegistroField;
+            }
+            set
+            {
+                this.UsuarioRegistroField = value;
+            }
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="GrupoExigencia", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class GrupoExigencia : SreIntBancClient.EntidadeBase
     {
+        
+        private System.DateTime DataRegistroField;
         
         private string DescricaoField;
         
         private System.Collections.Generic.Dictionary<string, string[]> ErrosField;
         
-        private byte IdField;
+        private bool ExcluidoField;
+        
+        private int IdField;
+        
+        private SreIntBancClient.TipoExigencia[] TiposExigenciaField;
+        
+        private int UsuarioIdField;
+        
+        private SreIntBancClient.Usuario UsuarioRegistroField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime DataRegistro
+        {
+            get
+            {
+                return this.DataRegistroField;
+            }
+            set
+            {
+                this.DataRegistroField = value;
+            }
+        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Descricao
@@ -86869,7 +87134,20 @@ namespace SreIntBancClient
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public byte Id
+        public bool Excluido
+        {
+            get
+            {
+                return this.ExcluidoField;
+            }
+            set
+            {
+                this.ExcluidoField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id
         {
             get
             {
@@ -86880,10 +87158,49 @@ namespace SreIntBancClient
                 this.IdField = value;
             }
         }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SreIntBancClient.TipoExigencia[] TiposExigencia
+        {
+            get
+            {
+                return this.TiposExigenciaField;
+            }
+            set
+            {
+                this.TiposExigenciaField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int UsuarioId
+        {
+            get
+            {
+                return this.UsuarioIdField;
+            }
+            set
+            {
+                this.UsuarioIdField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SreIntBancClient.Usuario UsuarioRegistro
+        {
+            get
+            {
+                return this.UsuarioRegistroField;
+            }
+            set
+            {
+                this.UsuarioRegistroField = value;
+            }
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Turma", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class Turma : SreIntBancClient.EntidadeBase
     {
@@ -87085,7 +87402,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="JulgamentoJulgador", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class JulgamentoJulgador : SreIntBancClient.EntidadeBase
     {
@@ -87422,7 +87739,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="JulgamentoJulgadorExigencia", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class JulgamentoJulgadorExigencia : SreIntBancClient.EntidadeBase
     {
@@ -87534,7 +87851,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Julgamento", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class Julgamento : SreIntBancClient.EntidadeBase
     {
@@ -87946,7 +88263,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloExigencia", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloExigencia : SreIntBancClient.EntidadeBase
     {
@@ -88043,7 +88360,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="JulgamentoJulgadorMotivoIndeferimentoDBE", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class JulgamentoJulgadorMotivoIndeferimentoDBE : SreIntBancClient.EntidadeBase
     {
@@ -88140,7 +88457,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="MotivoIndeferimentoDBE", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class MotivoIndeferimentoDBE : SreIntBancClient.EntidadeBase
     {
@@ -88207,7 +88524,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TurmaVogal", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class TurmaVogal : SreIntBancClient.EntidadeBase
     {
@@ -88334,7 +88651,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TipoAutenticacao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class TipoAutenticacao : SreIntBancClient.EntidadeBase
     {
@@ -88386,7 +88703,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="DistribuicaoCertidao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class DistribuicaoCertidao : SreIntBancClient.EntidadeBase
     {
@@ -88498,7 +88815,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloCertidaoDownload", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloCertidaoDownload : SreIntBancClient.EntidadeBase
     {
@@ -88595,7 +88912,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloCertidaoHistorico", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloCertidaoHistorico : SreIntBancClient.EntidadeBase
     {
@@ -88752,7 +89069,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TipoCertidaoEspecifica", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class TipoCertidaoEspecifica : SreIntBancClient.EntidadeBase
     {
@@ -88849,7 +89166,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TipoCertidao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class TipoCertidao : SreIntBancClient.EntidadeBase
     {
@@ -88901,7 +89218,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloCertidaoOnlineNadaConsta", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloCertidaoOnlineNadaConsta : SreIntBancClient.ProtocoloCertidao
     {
@@ -88953,7 +89270,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloCertidaoSimplificada", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloCertidaoSimplificada : SreIntBancClient.ProtocoloCertidao
     {
@@ -89020,7 +89337,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloCertidaoEspecifica", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloCertidaoEspecifica : SreIntBancClient.ProtocoloCertidao
     {
@@ -89177,7 +89494,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="StatusArquivamento", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class StatusArquivamento : SreIntBancClient.EntidadeBase
     {
@@ -89274,7 +89591,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TipoArquivamento", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class TipoArquivamento : SreIntBancClient.EntidadeBase
     {
@@ -89341,7 +89658,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AutenticadorDisponivel", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class AutenticadorDisponivel : SreIntBancClient.EntidadeBase
     {
@@ -89468,7 +89785,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="CadastradorDisponivel", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class CadastradorDisponivel : SreIntBancClient.EntidadeBase
     {
@@ -89595,7 +89912,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Cargo", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class Cargo : SreIntBancClient.EntidadeBase
     {
@@ -89707,7 +90024,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Escolaridade", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class Escolaridade : SreIntBancClient.EntidadeBase
     {
@@ -89789,7 +90106,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="FuncionarioCargoHistorico", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class FuncionarioCargoHistorico : SreIntBancClient.EntidadeBase
     {
@@ -89931,7 +90248,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="CargoComissionado", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class CargoComissionado : SreIntBancClient.EntidadeBase
     {
@@ -90208,7 +90525,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="FuncionarioCargoComissionadoHistorico", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class FuncionarioCargoComissionadoHistorico : SreIntBancClient.EntidadeBase
     {
@@ -90515,7 +90832,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="OrgaoRepresentativo", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class OrgaoRepresentativo : SreIntBancClient.EntidadeBase
     {
@@ -90627,7 +90944,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Simbolo", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class Simbolo : SreIntBancClient.EntidadeBase
     {
@@ -90709,7 +91026,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="DistribuicaoVogalRelator", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class DistribuicaoVogalRelator : SreIntBancClient.EntidadeBase
     {
@@ -90836,7 +91153,119 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EmissorCertidaoDisponivel", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
+    public partial class EmissorCertidaoDisponivel : SreIntBancClient.EntidadeBase
+    {
+        
+        private System.DateTime DataField;
+        
+        private bool DisponivelField;
+        
+        private System.Collections.Generic.Dictionary<string, string[]> ErrosField;
+        
+        private SreIntBancClient.Funcionario FuncionarioField;
+        
+        private int FuncionarioIdField;
+        
+        private SreIntBancClient.Usuario UsuarioField;
+        
+        private int UsuarioIdField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime Data
+        {
+            get
+            {
+                return this.DataField;
+            }
+            set
+            {
+                this.DataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Disponivel
+        {
+            get
+            {
+                return this.DisponivelField;
+            }
+            set
+            {
+                this.DisponivelField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.Dictionary<string, string[]> Erros
+        {
+            get
+            {
+                return this.ErrosField;
+            }
+            set
+            {
+                this.ErrosField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SreIntBancClient.Funcionario Funcionario
+        {
+            get
+            {
+                return this.FuncionarioField;
+            }
+            set
+            {
+                this.FuncionarioField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int FuncionarioId
+        {
+            get
+            {
+                return this.FuncionarioIdField;
+            }
+            set
+            {
+                this.FuncionarioIdField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SreIntBancClient.Usuario Usuario
+        {
+            get
+            {
+                return this.UsuarioField;
+            }
+            set
+            {
+                this.UsuarioField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int UsuarioId
+        {
+            get
+            {
+                return this.UsuarioIdField;
+            }
+            set
+            {
+                this.UsuarioIdField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Arquivo", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class Arquivo : SreIntBancClient.EntidadeBase
     {
@@ -90993,7 +91422,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ArquivoConteudo", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ArquivoConteudo : SreIntBancClient.EntidadeBase
     {
@@ -91075,7 +91504,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="InformacaoGeralArquivo", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class InformacaoGeralArquivo : SreIntBancClient.EntidadeBase
     {
@@ -91157,7 +91586,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="FuncionarioStatus", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class FuncionarioStatus : SreIntBancClient.EntidadeBase
     {
@@ -91284,7 +91713,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="StatusFuncionario", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class StatusFuncionario : SreIntBancClient.EntidadeBase
     {
@@ -91366,7 +91795,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="SuplenteDiaAutorizado", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class SuplenteDiaAutorizado : SreIntBancClient.EntidadeBase
     {
@@ -91478,7 +91907,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="HistoricoCargo", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class HistoricoCargo : SreIntBancClient.EntidadeBase
     {
@@ -91635,7 +92064,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="JulgadorDisponivel", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class JulgadorDisponivel : SreIntBancClient.EntidadeBase
     {
@@ -91807,7 +92236,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Despacho", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class Despacho : SreIntBancClient.EntidadeBase
     {
@@ -92174,7 +92603,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="DespachoArquivo", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class DespachoArquivo : SreIntBancClient.EntidadeBase
     {
@@ -92391,7 +92820,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="DespachoArquivoPaginaAnexo", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class DespachoArquivoPaginaAnexo : SreIntBancClient.EntidadeBase
     {
@@ -92563,7 +92992,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ClassificacaoDespacho", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ClassificacaoDespacho : SreIntBancClient.EntidadeBase
     {
@@ -92615,7 +93044,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="DespachoProtocolo", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class DespachoProtocolo : SreIntBancClient.EntidadeBase
     {
@@ -92712,7 +93141,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="FuncionarioTelefone", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class FuncionarioTelefone : SreIntBancClient.EntidadeBase
     {
@@ -92869,7 +93298,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AnaliseRegistroStatusProtocoloVinculado", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class AnaliseRegistroStatusProtocoloVinculado : SreIntBancClient.EntidadeBase
     {
@@ -92981,7 +93410,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="OficioModelo", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class OficioModelo : SreIntBancClient.EntidadeBase
     {
@@ -93108,7 +93537,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="BoletoBancarioAutenticacao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class BoletoBancarioAutenticacao : SreIntBancClient.EntidadeBase
     {
@@ -93127,7 +93556,7 @@ namespace SreIntBancClient
         
         private System.Nullable<System.DateTime> DataCancelamentoField;
         
-        private System.DateTime DataCreditoField;
+        private System.Nullable<System.DateTime> DataCreditoField;
         
         private System.DateTime DataImportacaoField;
         
@@ -93255,7 +93684,7 @@ namespace SreIntBancClient
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime DataCredito
+        public System.Nullable<System.DateTime> DataCredito
         {
             get
             {
@@ -93490,7 +93919,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="RemessaBoleto", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class RemessaBoleto : SreIntBancClient.EntidadeBase
     {
@@ -93767,7 +94196,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TipoRemessa", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class TipoRemessa : SreIntBancClient.EntidadeBase
     {
@@ -93819,7 +94248,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TipoArrecadacao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class TipoArrecadacao : SreIntBancClient.EntidadeBase
     {
@@ -93871,7 +94300,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TipoPagamento", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class TipoPagamento : SreIntBancClient.EntidadeBase
     {
@@ -93923,7 +94352,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloCaixaUsuario", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloCaixaUsuario : SreIntBancClient.EntidadeBase
     {
@@ -94080,7 +94509,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloCaixaUsuarioProtocolo", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloCaixaUsuarioProtocolo : SreIntBancClient.EntidadeBase
     {
@@ -94267,7 +94696,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="DocumentoDigitalDownloadHistorico", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class DocumentoDigitalDownloadHistorico : SreIntBancClient.EntidadeBase
     {
@@ -94409,7 +94838,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ExportacaoRemessa", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ExportacaoRemessa : SreIntBancClient.EntidadeBase
     {
@@ -94566,7 +94995,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="BoletoBancarioHistoricoLiberacaoPagamento", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class BoletoBancarioHistoricoLiberacaoPagamento : SreIntBancClient.EntidadeBase
     {
@@ -94708,7 +95137,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="RemessaGuia", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class RemessaGuia : SreIntBancClient.EntidadeBase
     {
@@ -94970,7 +95399,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Guia", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class Guia : SreIntBancClient.EntidadeBase
     {
@@ -95262,7 +95691,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="MotivoBloqueio", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class MotivoBloqueio : SreIntBancClient.EntidadeBase
     {
@@ -95329,7 +95758,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Lote", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class Lote : SreIntBancClient.EntidadeBase
     {
@@ -95426,7 +95855,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="OperacaoCreditoDebito", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class OperacaoCreditoDebito : SreIntBancClient.EntidadeBase
     {
@@ -95613,7 +96042,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Parecer", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class Parecer : SreIntBancClient.EntidadeBase
     {
@@ -95785,7 +96214,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtecaoCpfContratacao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtecaoCpfContratacao : SreIntBancClient.EntidadeBase
     {
@@ -96077,7 +96506,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtecaoCpfContratacaoHistorico", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtecaoCpfContratacaoHistorico : SreIntBancClient.EntidadeBase
     {
@@ -96204,7 +96633,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtecaoCpfTipoEvento", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtecaoCpfTipoEvento : SreIntBancClient.EntidadeBase
     {
@@ -96271,7 +96700,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtecaoCpfOpcaoContratacao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtecaoCpfOpcaoContratacao : SreIntBancClient.EntidadeBase
     {
@@ -96428,7 +96857,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtecaoCpfStatusContratacao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtecaoCpfStatusContratacao : SreIntBancClient.EntidadeBase
     {
@@ -96495,7 +96924,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloCND", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloCND : SreIntBancClient.EntidadeBase
     {
@@ -96727,7 +97156,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="FinalidadeCND", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class FinalidadeCND : SreIntBancClient.EntidadeBase
     {
@@ -96794,7 +97223,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloCaixaDeferido", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloCaixaDeferido : SreIntBancClient.EntidadeBase
     {
@@ -96891,7 +97320,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloCaixaDeferidoProtocolo", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloCaixaDeferidoProtocolo : SreIntBancClient.EntidadeBase
     {
@@ -97033,7 +97462,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloStatusHistorico", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloStatusHistorico : SreIntBancClient.EntidadeBase
     {
@@ -97175,7 +97604,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="RadarContratacao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class RadarContratacao : SreIntBancClient.EntidadeBase
     {
@@ -97497,7 +97926,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="RadarHistorico", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class RadarHistorico : SreIntBancClient.EntidadeBase
     {
@@ -97669,7 +98098,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="RadarTipoEvento", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class RadarTipoEvento : SreIntBancClient.EntidadeBase
     {
@@ -97721,7 +98150,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="RadarNotificacao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class RadarNotificacao : SreIntBancClient.EntidadeBase
     {
@@ -97833,7 +98262,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="RadarOpcaoContratacao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class RadarOpcaoContratacao : SreIntBancClient.EntidadeBase
     {
@@ -98020,7 +98449,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="RadarTipoMonitoramento", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class RadarTipoMonitoramento : SreIntBancClient.EntidadeBase
     {
@@ -98072,7 +98501,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="RadarStatusContratacao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class RadarStatusContratacao : SreIntBancClient.EntidadeBase
     {
@@ -98124,7 +98553,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="UsuarioInternet", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class UsuarioInternet : SreIntBancClient.EntidadeBase
     {
@@ -98251,7 +98680,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloDigitalAssinatura", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloDigitalAssinatura : SreIntBancClient.EntidadeBase
     {
@@ -98348,7 +98777,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AtaPlenariaProtocolo", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class AtaPlenariaProtocolo : SreIntBancClient.EntidadeBase
     {
@@ -98445,7 +98874,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AtaPlenaria", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class AtaPlenaria : SreIntBancClient.EntidadeBase
     {
@@ -98527,7 +98956,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloAtoEvento", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloAtoEvento : SreIntBancClient.EntidadeBase
     {
@@ -98639,7 +99068,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloBoleto", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloBoleto : SreIntBancClient.EntidadeBase
     {
@@ -98766,7 +99195,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="FilaMEI", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class FilaMEI : SreIntBancClient.EntidadeBase
     {
@@ -99073,7 +99502,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="FilaMeiHistorico", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class FilaMeiHistorico : SreIntBancClient.EntidadeBase
     {
@@ -99170,7 +99599,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="StatusFilaMei", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class StatusFilaMei : SreIntBancClient.EntidadeBase
     {
@@ -99222,7 +99651,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloAutenticacaoHistorico", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloAutenticacaoHistorico : SreIntBancClient.EntidadeBase
     {
@@ -99364,7 +99793,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EtapaAutenticacao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class EtapaAutenticacao : SreIntBancClient.EntidadeBase
     {
@@ -99416,7 +99845,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloInformacaoAdicional", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloInformacaoAdicional : SreIntBancClient.EntidadeBase
     {
@@ -99498,7 +99927,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="JulgamentoDNRC", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class JulgamentoDNRC : SreIntBancClient.EntidadeBase
     {
@@ -99640,7 +100069,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ObservacaoProtocoloJulgamentoAutenticacao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ObservacaoProtocoloJulgamentoAutenticacao : SreIntBancClient.EntidadeBase
     {
@@ -99767,7 +100196,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloCaixaExigenciaProtocolo", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloCaixaExigenciaProtocolo : SreIntBancClient.EntidadeBase
     {
@@ -99954,7 +100383,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloCaixaExigencia", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloCaixaExigencia : SreIntBancClient.EntidadeBase
     {
@@ -100051,7 +100480,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="StatusPagamento", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class StatusPagamento : SreIntBancClient.EntidadeBase
     {
@@ -100133,7 +100562,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloUsuarioCriacao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloUsuarioCriacao : SreIntBancClient.EntidadeBase
     {
@@ -100275,7 +100704,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloDesistencia", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloDesistencia : SreIntBancClient.Protocolo
     {
@@ -100312,7 +100741,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloDesistenciaProtocolo", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloDesistenciaProtocolo : SreIntBancClient.EntidadeBase
     {
@@ -100409,7 +100838,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloEmpresa", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SreIntBancClient.ProtocoloEmpresaProcuracao))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SreIntBancClient.ProtocoloEmpresaLivro))]
@@ -100913,7 +101342,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloEmpresaCisaoParcial", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloEmpresaCisaoParcial : SreIntBancClient.EntidadeBase
     {
@@ -101025,7 +101454,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloEmpresaCisaoTotal", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloEmpresaCisaoTotal : SreIntBancClient.EntidadeBase
     {
@@ -101137,7 +101566,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloEmpresaFusao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloEmpresaFusao : SreIntBancClient.EntidadeBase
     {
@@ -101234,7 +101663,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloEmpresaGrupo", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloEmpresaGrupo : SreIntBancClient.EntidadeBase
     {
@@ -101316,7 +101745,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloEmpresaIncorporacao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloEmpresaIncorporacao : SreIntBancClient.EntidadeBase
     {
@@ -101428,7 +101857,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloEmpresaTransformacao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloEmpresaTransformacao : SreIntBancClient.EntidadeBase
     {
@@ -101585,7 +102014,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloEmpresaLivro", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloEmpresaLivro : SreIntBancClient.ProtocoloEmpresa
     {
@@ -102297,7 +102726,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AtoEventoCombinado", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class AtoEventoCombinado : SreIntBancClient.EntidadeBase
     {
@@ -102394,7 +102823,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AtoEventoEstatistica", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class AtoEventoEstatistica : SreIntBancClient.EntidadeBase
     {
@@ -102446,7 +102875,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="CategoriaAtoEvento", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class CategoriaAtoEvento : SreIntBancClient.EntidadeBase
     {
@@ -102513,7 +102942,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EventoRFBAtoEvento", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class EventoRFBAtoEvento : SreIntBancClient.EntidadeBase
     {
@@ -102610,7 +103039,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Peso", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class Peso : SreIntBancClient.EntidadeBase
     {
@@ -102692,7 +103121,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="BoletoBancarioBloqueio", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class BoletoBancarioBloqueio : SreIntBancClient.EntidadeBase
     {
@@ -102849,7 +103278,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ContaBanco", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ContaBanco : SreIntBancClient.EntidadeBase
     {
@@ -103006,7 +103435,269 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="BoletoBancarioPagador", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
+    public partial class BoletoBancarioPagador : SreIntBancClient.EntidadeBase
+    {
+        
+        private string BairroField;
+        
+        private SreIntBancClient.BoletoBancario BoletoBancarioField;
+        
+        private int BoletoIdField;
+        
+        private string CEPField;
+        
+        private string ComplementoField;
+        
+        private string DDDField;
+        
+        private string DescricaoTipoLogradouroField;
+        
+        private string DocumentoField;
+        
+        private string EmailField;
+        
+        private System.Collections.Generic.Dictionary<string, string[]> ErrosField;
+        
+        private string LogradouroField;
+        
+        private string MunicipioField;
+        
+        private string NomeField;
+        
+        private string NumeroField;
+        
+        private string PixCopiaColaField;
+        
+        private string TelefoneField;
+        
+        private string UFField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Bairro
+        {
+            get
+            {
+                return this.BairroField;
+            }
+            set
+            {
+                this.BairroField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SreIntBancClient.BoletoBancario BoletoBancario
+        {
+            get
+            {
+                return this.BoletoBancarioField;
+            }
+            set
+            {
+                this.BoletoBancarioField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int BoletoId
+        {
+            get
+            {
+                return this.BoletoIdField;
+            }
+            set
+            {
+                this.BoletoIdField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CEP
+        {
+            get
+            {
+                return this.CEPField;
+            }
+            set
+            {
+                this.CEPField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Complemento
+        {
+            get
+            {
+                return this.ComplementoField;
+            }
+            set
+            {
+                this.ComplementoField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DDD
+        {
+            get
+            {
+                return this.DDDField;
+            }
+            set
+            {
+                this.DDDField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DescricaoTipoLogradouro
+        {
+            get
+            {
+                return this.DescricaoTipoLogradouroField;
+            }
+            set
+            {
+                this.DescricaoTipoLogradouroField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Documento
+        {
+            get
+            {
+                return this.DocumentoField;
+            }
+            set
+            {
+                this.DocumentoField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Email
+        {
+            get
+            {
+                return this.EmailField;
+            }
+            set
+            {
+                this.EmailField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.Dictionary<string, string[]> Erros
+        {
+            get
+            {
+                return this.ErrosField;
+            }
+            set
+            {
+                this.ErrosField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Logradouro
+        {
+            get
+            {
+                return this.LogradouroField;
+            }
+            set
+            {
+                this.LogradouroField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Municipio
+        {
+            get
+            {
+                return this.MunicipioField;
+            }
+            set
+            {
+                this.MunicipioField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Nome
+        {
+            get
+            {
+                return this.NomeField;
+            }
+            set
+            {
+                this.NomeField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Numero
+        {
+            get
+            {
+                return this.NumeroField;
+            }
+            set
+            {
+                this.NumeroField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PixCopiaCola
+        {
+            get
+            {
+                return this.PixCopiaColaField;
+            }
+            set
+            {
+                this.PixCopiaColaField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Telefone
+        {
+            get
+            {
+                return this.TelefoneField;
+            }
+            set
+            {
+                this.TelefoneField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string UF
+        {
+            get
+            {
+                return this.UFField;
+            }
+            set
+            {
+                this.UFField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="FormaPagamento", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class FormaPagamento : SreIntBancClient.EntidadeBase
     {
@@ -103072,7 +103763,7 @@ namespace SreIntBancClient
         }
     }
     
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ModoPersistenciaEnumerado", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidade")]
     public enum ModoPersistenciaEnumerado : int
     {
@@ -103091,7 +103782,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="SolicitacaoBoleto", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class SolicitacaoBoleto : object
     {
@@ -103173,7 +103864,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloVinculado", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloVinculado : object
     {
@@ -103390,7 +104081,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProtocoloEmpresaProcuracao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ProtocoloEmpresaProcuracao : SreIntBancClient.ProtocoloEmpresa
     {
@@ -103531,7 +104222,7 @@ namespace SreIntBancClient
         }
     }
     
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.FlagsAttribute()]
     [System.Runtime.Serialization.DataContractAttribute(Name="SituacaoArquivamentoEnumerado", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio.Enum" +
         "erados")]
@@ -103555,7 +104246,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="BufferInterno", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class BufferInterno : object
     {
@@ -103577,7 +104268,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ResultadoFichaDBE", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class ResultadoFichaDBE : object
     {
@@ -103719,7 +104410,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="FichaResumo", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class FichaResumo : object
     {
@@ -104145,7 +104836,7 @@ namespace SreIntBancClient
         }
         
         [System.Diagnostics.DebuggerStepThroughAttribute()]
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
         [System.Runtime.Serialization.DataContractAttribute(Name="FichaResumo.FichaResumoReserva", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
         public partial class FichaResumoReserva : object
         {
@@ -104242,7 +104933,7 @@ namespace SreIntBancClient
         }
         
         [System.Diagnostics.DebuggerStepThroughAttribute()]
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
         [System.Runtime.Serialization.DataContractAttribute(Name="FichaResumo.FichaResumoCNAE", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
         public partial class FichaResumoCNAE : object
         {
@@ -104279,7 +104970,7 @@ namespace SreIntBancClient
         }
         
         [System.Diagnostics.DebuggerStepThroughAttribute()]
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
         [System.Runtime.Serialization.DataContractAttribute(Name="FichaResumo.FichaResumoSocio", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
         public partial class FichaResumoSocio : object
         {
@@ -104346,7 +105037,7 @@ namespace SreIntBancClient
         }
     }
     
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TipoResultadoDecisaoEnumerado", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio.Enum" +
         "erados")]
     public enum TipoResultadoDecisaoEnumerado : int
@@ -104372,7 +105063,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Solicitacao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class Solicitacao : object
     {
@@ -104380,6 +105071,8 @@ namespace SreIntBancClient
         private System.DateTime DataCriacaoField;
         
         private string EmpresaNomeField;
+        
+        private SreIntBancClient.HistoricoSolicitacao HistoricoField;
         
         private int IdField;
         
@@ -104420,6 +105113,19 @@ namespace SreIntBancClient
             set
             {
                 this.EmpresaNomeField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SreIntBancClient.HistoricoSolicitacao Historico
+        {
+            get
+            {
+                return this.HistoricoField;
+            }
+            set
+            {
+                this.HistoricoField = value;
             }
         }
         
@@ -104529,7 +105235,74 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="HistoricoSolicitacao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
+    public partial class HistoricoSolicitacao : object
+    {
+        
+        private System.DateTime DataAgendamentoField;
+        
+        private System.DateTime DataHistoricoField;
+        
+        private int IdField;
+        
+        private int NumeroRefPedidoField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime DataAgendamento
+        {
+            get
+            {
+                return this.DataAgendamentoField;
+            }
+            set
+            {
+                this.DataAgendamentoField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime DataHistorico
+        {
+            get
+            {
+                return this.DataHistoricoField;
+            }
+            set
+            {
+                this.DataHistoricoField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id
+        {
+            get
+            {
+                return this.IdField;
+            }
+            set
+            {
+                this.IdField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int NumeroRefPedido
+        {
+            get
+            {
+                return this.NumeroRefPedidoField;
+            }
+            set
+            {
+                this.NumeroRefPedidoField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="StatusSolicitacao", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class StatusSolicitacao : object
     {
@@ -104566,7 +105339,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TipoCertificado", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class TipoCertificado : object
     {
@@ -104574,6 +105347,8 @@ namespace SreIntBancClient
         private int IdField;
         
         private string NomeField;
+        
+        private int TipoPessoaField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int Id
@@ -104600,10 +105375,23 @@ namespace SreIntBancClient
                 this.NomeField = value;
             }
         }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TipoPessoa
+        {
+            get
+            {
+                return this.TipoPessoaField;
+            }
+            set
+            {
+                this.TipoPessoaField = value;
+            }
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="SegurancaSessaoFaultContract", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.Seguranca.FaultContract" +
         "s")]
     public partial class SegurancaSessaoFaultContract : object
@@ -104686,7 +105474,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="SegurancaGenericFaultContract", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.Seguranca.FaultContract" +
         "s")]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SreIntBancClient.SegurancaAcessoNegadoFaultContract))]
@@ -104726,7 +105514,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="SegurancaAcessoNegadoFaultContract", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.Seguranca.FaultContract" +
         "s")]
     public partial class SegurancaAcessoNegadoFaultContract : SreIntBancClient.SegurancaGenericFaultContract
@@ -104734,7 +105522,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="SegurancaRegraNegocioFaultContract", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.Seguranca.FaultContract" +
         "s")]
     public partial class SegurancaRegraNegocioFaultContract : SreIntBancClient.SegurancaGenericFaultContract
@@ -104757,7 +105545,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="NaoConformidade", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public partial class NaoConformidade : object
     {
@@ -104883,7 +105671,7 @@ namespace SreIntBancClient
         }
     }
     
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TipoNaoConformidade", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
     public enum TipoNaoConformidade : byte
     {
@@ -104896,7 +105684,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="IntegracaoBancariaGenericFaultContract", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio.Faul" +
         "tContracts")]
     public partial class IntegracaoBancariaGenericFaultContract : object
@@ -104934,7 +105722,7 @@ namespace SreIntBancClient
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="RegistroDeComercioValidacaoFaultContract", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio.Faul" +
         "tContracts")]
     public partial class RegistroDeComercioValidacaoFaultContract : object
@@ -104971,7 +105759,283 @@ namespace SreIntBancClient
         }
     }
     
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="PessoaParticipanteBoleto", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Negocios.RegistroDeComercio")]
+    public partial class PessoaParticipanteBoleto : object
+    {
+        
+        private string DocumentoField;
+        
+        private string EmailField;
+        
+        private SreIntBancClient.EnderecoBoleto EnderecoField;
+        
+        private string NomeField;
+        
+        private bool PessoaJuridicaField;
+        
+        private SreIntBancClient.TelefoneBoleto TelefoneField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Documento
+        {
+            get
+            {
+                return this.DocumentoField;
+            }
+            set
+            {
+                this.DocumentoField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Email
+        {
+            get
+            {
+                return this.EmailField;
+            }
+            set
+            {
+                this.EmailField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SreIntBancClient.EnderecoBoleto Endereco
+        {
+            get
+            {
+                return this.EnderecoField;
+            }
+            set
+            {
+                this.EnderecoField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Nome
+        {
+            get
+            {
+                return this.NomeField;
+            }
+            set
+            {
+                this.NomeField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool PessoaJuridica
+        {
+            get
+            {
+                return this.PessoaJuridicaField;
+            }
+            set
+            {
+                this.PessoaJuridicaField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SreIntBancClient.TelefoneBoleto Telefone
+        {
+            get
+            {
+                return this.TelefoneField;
+            }
+            set
+            {
+                this.TelefoneField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EnderecoBoleto", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Negocios.RegistroDeComercio")]
+    public partial class EnderecoBoleto : object
+    {
+        
+        private string BairroField;
+        
+        private string CepField;
+        
+        private string ComplementoField;
+        
+        private string DescricaoTipoLogradouroField;
+        
+        private string LogradouroField;
+        
+        private string MunicipioField;
+        
+        private string NumeroField;
+        
+        private string PaisField;
+        
+        private string UfField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Bairro
+        {
+            get
+            {
+                return this.BairroField;
+            }
+            set
+            {
+                this.BairroField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Cep
+        {
+            get
+            {
+                return this.CepField;
+            }
+            set
+            {
+                this.CepField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Complemento
+        {
+            get
+            {
+                return this.ComplementoField;
+            }
+            set
+            {
+                this.ComplementoField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DescricaoTipoLogradouro
+        {
+            get
+            {
+                return this.DescricaoTipoLogradouroField;
+            }
+            set
+            {
+                this.DescricaoTipoLogradouroField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Logradouro
+        {
+            get
+            {
+                return this.LogradouroField;
+            }
+            set
+            {
+                this.LogradouroField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Municipio
+        {
+            get
+            {
+                return this.MunicipioField;
+            }
+            set
+            {
+                this.MunicipioField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Numero
+        {
+            get
+            {
+                return this.NumeroField;
+            }
+            set
+            {
+                this.NumeroField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Pais
+        {
+            get
+            {
+                return this.PaisField;
+            }
+            set
+            {
+                this.PaisField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Uf
+        {
+            get
+            {
+                return this.UfField;
+            }
+            set
+            {
+                this.UfField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TelefoneBoleto", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Negocios.RegistroDeComercio")]
+    public partial class TelefoneBoleto : object
+    {
+        
+        private string DddField;
+        
+        private string NumeroField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Ddd
+        {
+            get
+            {
+                return this.DddField;
+            }
+            set
+            {
+                this.DddField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Numero
+        {
+            get
+            {
+                return this.NumeroField;
+            }
+            set
+            {
+                this.NumeroField = value;
+            }
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="StatusProtocoloEnumerado", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio.Enum" +
         "erados")]
     public enum StatusProtocoloEnumerado : byte
@@ -104999,7 +106063,7 @@ namespace SreIntBancClient
         Finalizado = 6,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        Aguardando_resultado_do_vinculo = 7,
+        Aguardando_Analise_de_Processo_Vinculado = 7,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Disponivel_para_analise = 8,
@@ -105111,10 +106175,19 @@ namespace SreIntBancClient
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Aguardando_Ente = 44,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Aguardando_informacao_de_CNPJ = 45,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Aguardando_Envio_para_Grafica = 46,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Aguardando_Distribuicao = 47,
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ExcessoDeRegistrosFaultContract", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio.Faul" +
         "tContracts")]
     public partial class ExcessoDeRegistrosFaultContract : object
@@ -105166,7 +106239,7 @@ namespace SreIntBancClient
         }
     }
     
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TipoPagamentoEnumerado", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio.Enum" +
         "erados")]
     public enum TipoPagamentoEnumerado : byte
@@ -105185,7 +106258,288 @@ namespace SreIntBancClient
         Nao_informado = 3,
     }
     
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="NotificacaoPagamento", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Negocios.RegistroDeComercio")]
+    public partial class NotificacaoPagamento : object
+    {
+        
+        private int BancoRecebedorField;
+        
+        private SreIntBancClient.TipoArrecadacaoEnumerado CanalPagamentoField;
+        
+        private System.DateTime DataHoraPagamentoField;
+        
+        private System.DateTime DataRegistroField;
+        
+        private System.DateTime DataVencimentoField;
+        
+        private string NegociacaoField;
+        
+        private long NossoNumeroField;
+        
+        private string ProdutoField;
+        
+        private string TipoEventoField;
+        
+        private decimal ValorAbatimentoField;
+        
+        private decimal ValorBoletoField;
+        
+        private decimal ValorDescField;
+        
+        private decimal ValorJurosField;
+        
+        private decimal ValorMultaField;
+        
+        private decimal ValorPagamentoField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int BancoRecebedor
+        {
+            get
+            {
+                return this.BancoRecebedorField;
+            }
+            set
+            {
+                this.BancoRecebedorField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SreIntBancClient.TipoArrecadacaoEnumerado CanalPagamento
+        {
+            get
+            {
+                return this.CanalPagamentoField;
+            }
+            set
+            {
+                this.CanalPagamentoField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime DataHoraPagamento
+        {
+            get
+            {
+                return this.DataHoraPagamentoField;
+            }
+            set
+            {
+                this.DataHoraPagamentoField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime DataRegistro
+        {
+            get
+            {
+                return this.DataRegistroField;
+            }
+            set
+            {
+                this.DataRegistroField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime DataVencimento
+        {
+            get
+            {
+                return this.DataVencimentoField;
+            }
+            set
+            {
+                this.DataVencimentoField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Negociacao
+        {
+            get
+            {
+                return this.NegociacaoField;
+            }
+            set
+            {
+                this.NegociacaoField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long NossoNumero
+        {
+            get
+            {
+                return this.NossoNumeroField;
+            }
+            set
+            {
+                this.NossoNumeroField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Produto
+        {
+            get
+            {
+                return this.ProdutoField;
+            }
+            set
+            {
+                this.ProdutoField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TipoEvento
+        {
+            get
+            {
+                return this.TipoEventoField;
+            }
+            set
+            {
+                this.TipoEventoField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal ValorAbatimento
+        {
+            get
+            {
+                return this.ValorAbatimentoField;
+            }
+            set
+            {
+                this.ValorAbatimentoField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal ValorBoleto
+        {
+            get
+            {
+                return this.ValorBoletoField;
+            }
+            set
+            {
+                this.ValorBoletoField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal ValorDesc
+        {
+            get
+            {
+                return this.ValorDescField;
+            }
+            set
+            {
+                this.ValorDescField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal ValorJuros
+        {
+            get
+            {
+                return this.ValorJurosField;
+            }
+            set
+            {
+                this.ValorJurosField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal ValorMulta
+        {
+            get
+            {
+                return this.ValorMultaField;
+            }
+            set
+            {
+                this.ValorMultaField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal ValorPagamento
+        {
+            get
+            {
+                return this.ValorPagamentoField;
+            }
+            set
+            {
+                this.ValorPagamentoField = value;
+            }
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TipoArrecadacaoEnumerado", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio.Enum" +
+        "erados")]
+    public enum TipoArrecadacaoEnumerado : byte
+    {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        INDEFINIDO = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Boca_de_Caixa_com_fatura = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Arrecadacao_Eletronica_com_fatura = 2,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Internet_com_fatura = 3,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Outros_Meios_com_fatura = 4,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Casas_lotericas_correspondentes_bancarios_com_fatura = 5,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Telefone_com_fatura = 6,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Boca_de_Caixa_sem_fatura = 10,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Arrecadacao_Eletronica_sem_fatura = 11,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Internet_sem_fatura = 12,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Casas_lotericas_correspondentes_bancarios_sem_fatura = 13,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Telefone_sem_fatura = 14,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Outros_Meios_sem_fatura = 15,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Qrcode = 16,
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="SreIntBancClient.IIntegracaoBancaria")]
     public interface IIntegracaoBancaria
     {
@@ -105587,7 +106941,7 @@ namespace SreIntBancClient
         [System.ServiceModel.FaultContractAttribute(typeof(SreIntBancClient.IntegracaoBancariaGenericFaultContract), Action="http://tempuri.org/IIntegracaoBancaria/GerarBoletoIntegracaoBancariaGenericFaultC" +
             "ontractFault", Name="IntegracaoBancariaGenericFaultContract", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio.Faul" +
             "tContracts")]
-        System.Threading.Tasks.Task<SreIntBancClient.BoletoBancario> GerarBoletoAsync(decimal valorBoleto);
+        System.Threading.Tasks.Task<SreIntBancClient.BoletoBancario> GerarBoletoAsync(decimal valorBoleto, SreIntBancClient.PessoaParticipanteBoleto pessoaParticipante);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IIntegracaoBancaria/ObterBoletosCadastrados", ReplyAction="http://tempuri.org/IIntegracaoBancaria/ObterBoletosCadastradosResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(SreIntBancClient.SegurancaSessaoFaultContract), Action="http://tempuri.org/IIntegracaoBancaria/ObterBoletosCadastradosSegurancaSessaoFaul" +
@@ -105775,7 +107129,7 @@ namespace SreIntBancClient
         [System.ServiceModel.FaultContractAttribute(typeof(SreIntBancClient.ExcessoDeRegistrosFaultContract), Action="http://tempuri.org/IIntegracaoBancaria/GerarBoletoAvulsoExcessoDeRegistrosFaultCo" +
             "ntractFault", Name="ExcessoDeRegistrosFaultContract", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio.Faul" +
             "tContracts")]
-        System.Threading.Tasks.Task<SreIntBancClient.BoletoBancarioAvulso> GerarBoletoAvulsoAsync(SreIntBancClient.BoletoBancarioAvulso boleto);
+        System.Threading.Tasks.Task<SreIntBancClient.BoletoBancarioAvulso> GerarBoletoAvulsoAsync(SreIntBancClient.BoletoBancarioAvulso boleto, SreIntBancClient.PessoaParticipanteBoleto pessoaParticipante);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IIntegracaoBancaria/ObterBoletoBancarioAvulso", ReplyAction="http://tempuri.org/IIntegracaoBancaria/ObterBoletoBancarioAvulsoResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(SreIntBancClient.SegurancaSessaoFaultContract), Action="http://tempuri.org/IIntegracaoBancaria/ObterBoletoBancarioAvulsoSegurancaSessaoFa" +
@@ -105845,7 +107199,7 @@ namespace SreIntBancClient
         [System.ServiceModel.FaultContractAttribute(typeof(SreIntBancClient.ExcessoDeRegistrosFaultContract), Action="http://tempuri.org/IIntegracaoBancaria/ObterBoletosBancariosAvulsosExcessoDeRegis" +
             "trosFaultContractFault", Name="ExcessoDeRegistrosFaultContract", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio.Faul" +
             "tContracts")]
-        System.Threading.Tasks.Task<SreIntBancClient.BoletoBancarioAvulso[]> ObterBoletosBancariosAvulsosAsync();
+        System.Threading.Tasks.Task<SreIntBancClient.BoletoBancarioAvulso[]> ObterBoletosBancariosAvulsosAsync(bool disponiveisParaUso);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IIntegracaoBancaria/ObterValorGuiaAvulsa", ReplyAction="http://tempuri.org/IIntegracaoBancaria/ObterValorGuiaAvulsaResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(SreIntBancClient.SegurancaSessaoFaultContract), Action="http://tempuri.org/IIntegracaoBancaria/ObterValorGuiaAvulsaSegurancaSessaoFaultCo" +
@@ -105918,15 +107272,55 @@ namespace SreIntBancClient
             "elecionadoExcessoDeRegistrosFaultContractFault", Name="ExcessoDeRegistrosFaultContract", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio.Faul" +
             "tContracts")]
         System.Threading.Tasks.Task<System.Tuple<SreIntBancClient.BoletoBancario[], SreIntBancClient.Protocolo[], int>> ObterBoletosEProtocolosAssociadosAoBoletoSelecionadoAsync(System.Nullable<int> numeroDocumento, string numeroBoleto);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IIntegracaoBancaria/VerificarPagamentosBoletoCobranca", ReplyAction="http://tempuri.org/IIntegracaoBancaria/VerificarPagamentosBoletoCobrancaResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SreIntBancClient.SegurancaSessaoFaultContract), Action="http://tempuri.org/IIntegracaoBancaria/VerificarPagamentosBoletoCobrancaSeguranca" +
+            "SessaoFaultContractFault", Name="SegurancaSessaoFaultContract", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.Seguranca.FaultContract" +
+            "s")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SreIntBancClient.SegurancaRegraNegocioFaultContract), Action="http://tempuri.org/IIntegracaoBancaria/VerificarPagamentosBoletoCobrancaSeguranca" +
+            "RegraNegocioFaultContractFault", Name="SegurancaRegraNegocioFaultContract", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.Seguranca.FaultContract" +
+            "s")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SreIntBancClient.SegurancaAcessoNegadoFaultContract), Action="http://tempuri.org/IIntegracaoBancaria/VerificarPagamentosBoletoCobrancaSeguranca" +
+            "AcessoNegadoFaultContractFault", Name="SegurancaAcessoNegadoFaultContract", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.Seguranca.FaultContract" +
+            "s")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SreIntBancClient.SegurancaGenericFaultContract), Action="http://tempuri.org/IIntegracaoBancaria/VerificarPagamentosBoletoCobrancaSeguranca" +
+            "GenericFaultContractFault", Name="SegurancaGenericFaultContract", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.Seguranca.FaultContract" +
+            "s")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SreIntBancClient.NaoConformidade), Action="http://tempuri.org/IIntegracaoBancaria/VerificarPagamentosBoletoCobrancaNaoConfor" +
+            "midadeFault", Name="NaoConformidade", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SreIntBancClient.IntegracaoBancariaGenericFaultContract), Action="http://tempuri.org/IIntegracaoBancaria/VerificarPagamentosBoletoCobrancaIntegraca" +
+            "oBancariaGenericFaultContractFault", Name="IntegracaoBancariaGenericFaultContract", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio.Faul" +
+            "tContracts")]
+        System.Threading.Tasks.Task<int> VerificarPagamentosBoletoCobrancaAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IIntegracaoBancaria/ProcessarNotificacaoPagamento", ReplyAction="http://tempuri.org/IIntegracaoBancaria/ProcessarNotificacaoPagamentoResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SreIntBancClient.SegurancaSessaoFaultContract), Action="http://tempuri.org/IIntegracaoBancaria/ProcessarNotificacaoPagamentoSegurancaSess" +
+            "aoFaultContractFault", Name="SegurancaSessaoFaultContract", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.Seguranca.FaultContract" +
+            "s")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SreIntBancClient.SegurancaRegraNegocioFaultContract), Action="http://tempuri.org/IIntegracaoBancaria/ProcessarNotificacaoPagamentoSegurancaRegr" +
+            "aNegocioFaultContractFault", Name="SegurancaRegraNegocioFaultContract", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.Seguranca.FaultContract" +
+            "s")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SreIntBancClient.SegurancaAcessoNegadoFaultContract), Action="http://tempuri.org/IIntegracaoBancaria/ProcessarNotificacaoPagamentoSegurancaAces" +
+            "soNegadoFaultContractFault", Name="SegurancaAcessoNegadoFaultContract", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.Seguranca.FaultContract" +
+            "s")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SreIntBancClient.SegurancaGenericFaultContract), Action="http://tempuri.org/IIntegracaoBancaria/ProcessarNotificacaoPagamentoSegurancaGene" +
+            "ricFaultContractFault", Name="SegurancaGenericFaultContract", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.Seguranca.FaultContract" +
+            "s")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SreIntBancClient.NaoConformidade), Action="http://tempuri.org/IIntegracaoBancaria/ProcessarNotificacaoPagamentoNaoConformida" +
+            "deFault", Name="NaoConformidade", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SreIntBancClient.IntegracaoBancariaGenericFaultContract), Action="http://tempuri.org/IIntegracaoBancaria/ProcessarNotificacaoPagamentoIntegracaoBan" +
+            "cariaGenericFaultContractFault", Name="IntegracaoBancariaGenericFaultContract", Namespace="http://schemas.datacontract.org/2004/07/JUCERJA.Entidades.RegistroDeComercio.Faul" +
+            "tContracts")]
+        System.Threading.Tasks.Task<bool> ProcessarNotificacaoPagamentoAsync(SreIntBancClient.NotificacaoPagamento notificacaoPagamento);
     }
     
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     public interface IIntegracaoBancariaChannel : SreIntBancClient.IIntegracaoBancaria, System.ServiceModel.IClientChannel
     {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     public partial class IntegracaoBancariaClient : System.ServiceModel.ClientBase<SreIntBancClient.IIntegracaoBancaria>, SreIntBancClient.IIntegracaoBancaria
     {
         
@@ -106065,9 +107459,9 @@ namespace SreIntBancClient
             return base.Channel.ObterBoletoBancarioParaComprovanteBloqueioAsync(numeroBoleto);
         }
         
-        public System.Threading.Tasks.Task<SreIntBancClient.BoletoBancario> GerarBoletoAsync(decimal valorBoleto)
+        public System.Threading.Tasks.Task<SreIntBancClient.BoletoBancario> GerarBoletoAsync(decimal valorBoleto, SreIntBancClient.PessoaParticipanteBoleto pessoaParticipante)
         {
-            return base.Channel.GerarBoletoAsync(valorBoleto);
+            return base.Channel.GerarBoletoAsync(valorBoleto, pessoaParticipante);
         }
         
         public System.Threading.Tasks.Task<SreIntBancClient.BoletoBancario[]> ObterBoletosCadastradosAsync(SreIntBancClient.BoletoBancario[] boletosBancarios)
@@ -106110,9 +107504,9 @@ namespace SreIntBancClient
             return base.Channel.ObterArquivoBoletoAsync(boletoId);
         }
         
-        public System.Threading.Tasks.Task<SreIntBancClient.BoletoBancarioAvulso> GerarBoletoAvulsoAsync(SreIntBancClient.BoletoBancarioAvulso boleto)
+        public System.Threading.Tasks.Task<SreIntBancClient.BoletoBancarioAvulso> GerarBoletoAvulsoAsync(SreIntBancClient.BoletoBancarioAvulso boleto, SreIntBancClient.PessoaParticipanteBoleto pessoaParticipante)
         {
-            return base.Channel.GerarBoletoAvulsoAsync(boleto);
+            return base.Channel.GerarBoletoAvulsoAsync(boleto, pessoaParticipante);
         }
         
         public System.Threading.Tasks.Task<SreIntBancClient.BoletoBancarioAvulso> ObterBoletoBancarioAvulsoAsync(int boletoAvulsoId)
@@ -106125,9 +107519,9 @@ namespace SreIntBancClient
             return base.Channel.ObterBoletoBancarioAvulsoPeloBoleteoIdAsync(boletoId);
         }
         
-        public System.Threading.Tasks.Task<SreIntBancClient.BoletoBancarioAvulso[]> ObterBoletosBancariosAvulsosAsync()
+        public System.Threading.Tasks.Task<SreIntBancClient.BoletoBancarioAvulso[]> ObterBoletosBancariosAvulsosAsync(bool disponiveisParaUso)
         {
-            return base.Channel.ObterBoletosBancariosAvulsosAsync();
+            return base.Channel.ObterBoletosBancariosAvulsosAsync(disponiveisParaUso);
         }
         
         public System.Threading.Tasks.Task<decimal> ObterValorGuiaAvulsaAsync(SreIntBancClient.Ato ato, SreIntBancClient.Evento[] eventos, SreIntBancClient.TipoJuridico tipoJuridico, SreIntBancClient.PorteEmpresarial porteEmpresarial, int quantidade)
@@ -106145,10 +107539,27 @@ namespace SreIntBancClient
             return base.Channel.ObterBoletosEProtocolosAssociadosAoBoletoSelecionadoAsync(numeroDocumento, numeroBoleto);
         }
         
+        public System.Threading.Tasks.Task<int> VerificarPagamentosBoletoCobrancaAsync()
+        {
+            return base.Channel.VerificarPagamentosBoletoCobrancaAsync();
+        }
+        
+        public System.Threading.Tasks.Task<bool> ProcessarNotificacaoPagamentoAsync(SreIntBancClient.NotificacaoPagamento notificacaoPagamento)
+        {
+            return base.Channel.ProcessarNotificacaoPagamentoAsync(notificacaoPagamento);
+        }
+        
         public virtual System.Threading.Tasks.Task OpenAsync()
         {
             return System.Threading.Tasks.Task.Factory.FromAsync(((System.ServiceModel.ICommunicationObject)(this)).BeginOpen(null, null), new System.Action<System.IAsyncResult>(((System.ServiceModel.ICommunicationObject)(this)).EndOpen));
         }
+        
+        #if !NET6_0_OR_GREATER
+        public virtual System.Threading.Tasks.Task CloseAsync()
+        {
+            return System.Threading.Tasks.Task.Factory.FromAsync(((System.ServiceModel.ICommunicationObject)(this)).BeginClose(null, null), new System.Action<System.IAsyncResult>(((System.ServiceModel.ICommunicationObject)(this)).EndClose));
+        }
+        #endif
         
         private static System.ServiceModel.Channels.Binding GetBindingForEndpoint(EndpointConfiguration endpointConfiguration)
         {
