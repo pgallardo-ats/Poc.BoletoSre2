@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using Poc.BoletoSre2.Helpers;
 using Poc.BoletoSre2.Modelos;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
@@ -11,7 +12,7 @@ namespace Poc.BoletoSre2.Gateways {
 
         #region Campos...
 
-        Client.IntegracaoBancariaClient _integracaoBancariaClient;
+        private readonly Client.IntegracaoBancariaClient _integracaoBancariaClient;
         private bool disposed = false;
         private readonly ILogger<IntegracaoBancariaGateway> _log;
         private readonly string _sistemaId = "SISTEMA";
@@ -102,6 +103,27 @@ namespace Poc.BoletoSre2.Gateways {
                     UsuarioId = ticket.UsuarioId,
                 };
 
+                // OBS: Devido a limitação no serviço do provedor, é obrigatório a informação do endereço do solicitante.
+                //      como o cenário mais comum é não se ter esta informação, é convencionado usar o endereço da JUCERJA.
+                Client.PessoaParticipanteBoleto participante = new Client.PessoaParticipanteBoleto() {
+                    Nome = dadosBoleto.NomeSolicitante, // Campo obrigatório...
+                    Documento = dadosBoleto.CpfCnpjSolicitante, // Campo obrigatório...
+                    PessoaJuridica = dadosBoleto.CpfCnpjSolicitante.EhCnpjValido(), // Campo obrigatório...
+                    Email = null, // null ou o e-mail que se puder obter do usuário...
+                    Telefone = null, // null ou o telefone que se puder obter do usuário...
+                    Endereco = new Client.EnderecoBoleto() {
+                        DescricaoTipoLogradouro = "AV.", // Campo obrigatório...
+                        Logradouro = "RIO BRANCO", // Campo obrigatório...
+                        Complemento = "", // Campo obrigatório (Não pode ser null)...
+                        Numero = "10", // Campo obrigatório...
+                        Bairro = "CENTRO", // Campo obrigatório...
+                        Cep = "20090000", // Campo obrigatório...
+                        Municipio = "RIO DE JANEIRO", // Campo obrigatório...
+                        Pais = "BRASIL", // Campo obrigatório...
+                        Uf = "RJ", // Campo obrigatório...
+                    },
+                };
+
                 Task<Client.BoletoBancarioAvulso> boletoBancarioAvulsoTask;
                 using (OperationContextScope contextScope = new OperationContextScope(_integracaoBancariaClient.InnerChannel)) {
 
@@ -109,7 +131,7 @@ namespace Poc.BoletoSre2.Gateways {
                     DefinirWcfComAutenticacaoJucerja(ticket, ipChamador);
 
                     // Chamar integração...
-                    boletoBancarioAvulsoTask = _integracaoBancariaClient.GerarBoletoAvulsoAsync(boletoClient);
+                    boletoBancarioAvulsoTask = _integracaoBancariaClient.GerarBoletoAvulsoAsync(boletoClient, participante);
                 }
                 Client.BoletoBancarioAvulso boletoAvulsoClient = await boletoBancarioAvulsoTask.WaitAsync(cancellationToken);
 
@@ -126,7 +148,7 @@ namespace Poc.BoletoSre2.Gateways {
         }
 
         /// <inheritdoc/>
-        public async Task<Client.BoletoBancarioAvulso> ObterBoletoBancarioAvulsoPorIdAsync(int boletoId, TicketAutenticacao ticket, string ipChamador, CancellationToken cancellationToken) {
+        public async Task<Client.BoletoBancarioAvulso> ObterBoletoBancarioAvulsoPorIdAsync(int boletoId, TicketAutenticacao ticket, string ipChamador, CancellationToken cancellationToken = default) {
 
             Client.BoletoBancarioAvulso boletoClient = null;
 
@@ -184,6 +206,38 @@ namespace Poc.BoletoSre2.Gateways {
             return boletoAvulsoClient;
         }
 
+        /// <inheritdoc/>
+        public async Task<ArquivoInterno> ObterBoletoBancarioArquivoAsync(int boletoId, string caminhoArquivo, string nomeArquivo, TicketAutenticacao ticket, string ipChamador, CancellationToken cancellationToken = default) {
+
+            string pathArquivo = Path.Combine(caminhoArquivo, nomeArquivo);
+            ArquivoInterno boletoArquivo = null;
+
+            try {
+                Task<byte[]> obterBoletoTask;
+
+                using (OperationContextScope contextScope = new OperationContextScope(_integracaoBancariaClient.InnerChannel)) {
+
+                    // Injetar dados do ticket no contexto WCF...
+                    DefinirWcfComAutenticacaoJucerja(ticket, ipChamador);
+
+                    // Chamar integração...
+                    obterBoletoTask = _integracaoBancariaClient.ObterArquivoBoletoAsync(boletoId);
+                }
+                byte[] boletoArray = await obterBoletoTask.WaitAsync(cancellationToken);
+                await File.WriteAllBytesAsync(pathArquivo, boletoArray, cancellationToken);
+                boletoArray = null;
+                boletoArquivo = new ArquivoInterno() { Nome = nomeArquivo, Caminho = pathArquivo };
+            }
+            catch (FaultException<Client.SegurancaSessaoFaultContract> xabu) {
+                _log.LogError(xabu, "Erro ao se autenticar durante comunicação com integração");
+            }
+            catch (Exception xabu) {
+                _log.LogError(xabu, "Erro inesperado em CriarBoletoAvulsoAsync...");
+            }
+
+            return boletoArquivo;
+        }
+
         #endregion
 
         #region Métodos de apoio...
@@ -195,7 +249,7 @@ namespace Poc.BoletoSre2.Gateways {
         /// <param name="contexto"></param>
         /// <param name="conteudo"></param>
         /// <param name="nomeHeader"></param>
-        private void DefinirWcfHeader<T>(OperationContext contexto, T conteudo, string nomeHeader) {
+        private static void DefinirWcfHeader<T>(OperationContext contexto, T conteudo, string nomeHeader) {
 
             if (contexto != null && contexto.OutgoingMessageHeaders != null && conteudo != null) {
                 MessageHeader<T> messageHeader = new MessageHeader<T>(conteudo);
@@ -230,7 +284,7 @@ namespace Poc.BoletoSre2.Gateways {
             GC.SuppressFinalize(this);
         }
 
-        public void Dispose(bool disposing) {
+        protected virtual void Dispose(bool disposing) {
 
             if (disposed) { return; }
 

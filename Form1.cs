@@ -52,6 +52,15 @@ namespace Poc.BoletoSre2 {
 
             SetOcupado(true);
             await GerarBoletoAsync();
+            await Task.Delay(3000);
+            SetOcupado(false);
+        }
+
+        private async void btnExibirBoleto_Click(object sender, EventArgs e) {
+
+            SetOcupado(true);
+            await ExibirBoletoBancarioAsync();
+            await Task.Delay(3000);
             SetOcupado(false);
         }
 
@@ -143,21 +152,70 @@ namespace Poc.BoletoSre2 {
             }
         }
 
-        #endregion
+        public async Task ExibirBoletoBancarioAsync() {
 
-        #region Métodos de apoio...
+            // OBS:
+            // Até o momento desta implementação, o provedor de serviços bancários de boleto usado pela JUCERJA tem
+            // o problema técnico de não disponibilizar um ambiente de testes, apenas de produção. Por isso boletos gerados
+            // no ambiente de testes da JUCERJA sofrem as seguintes alterações ao serem gerados no ambiente de produção do provedor:
+            // - Nome do solicitante do boleto é alterado para um funcionário pré-definido da JUCERJA.
+            // - Endereço do solicitante é alterado para o endereço da JUCERJA.
+            // - Valor do boleto é alterado para R$ 0,05.
+            // Isto irá se reflitir nos PDFs dos boletos gerados no ambiente de testes da JUCERJA. No ambiente de produção
+            // todos os valores enviados para a API da integração bancária do SRE são preservados.
+
+            bool boletoInformado = int.TryParse(txtBoletoID.Text, new CultureInfo("pt-BR"), out int boletoId);
+            if (!boletoInformado) {
+                Logar("ERRO: Informe um BoletoID válido para exibir o boleto bancário...");
+                return;
+            }
+
+            Logar($"\r\nExibir boleto bancário, BoletoID: {boletoId}");
+            _cts = new CancellationTokenSource();
+
+            var ticket = await _segurancaGateway.RealizarLoginAsync(txtBoxLogin.Text, txtBoxSenha.Text, _cts.Token).ConfigureAwait(false);
+            if (ticket == null) {
+                Logar("ERRO: Login não teve sucesso, confira o log...");
+                return;
+            }
+            else {
+                Logar($"LOGIN: Login com sucesso para: \"{txtBoxLogin.Text}\", UsuarioID: {ticket.UsuarioId}");
+            }
+
+            string nomeArquivo = $"boleto-{boletoId}-{Ulid.NewUlid()}.pdf";
+            string caminho = AppDomain.CurrentDomain.BaseDirectory;
+
+            // Obter o arquivo PDF do boleto bancário...
+            var arquivo = await _integracaoBancariaGateway.ObterBoletoBancarioArquivoAsync(boletoId, caminho, nomeArquivo, ticket, "", _cts.Token).ConfigureAwait(false);
+            if (arquivo == null) {
+                Logar($"ERRO: Ocorreu erro ao tentar obter o arquivo do boleto bancário, BoletoID: {boletoId}, confira o log...");
+                return;
+            }
+
+            if (File.Exists(arquivo.Caminho)) {
+                Logar("Boleto bancário gerado em: " + arquivo.Caminho);
+
+                string caminhoArquivo = arquivo.Caminho;
+                BeginInvoke(new Action(() => {
+                    var frm = new FrmExibirBoleto(caminhoArquivo);
+                    frm.Show(this);
+                }));
+
+            }
+        }
 
         private void SetOcupado(bool ocupado) {
 
             _ocupado = ocupado;
-            progressBar1.Visible = ocupado;
-            btnGerarBoleto.Enabled = !ocupado;
+            progressBar1.Visible = _ocupado;
+            btnGerarBoleto.Enabled = !_ocupado;
+            btnExibirBoleto.Enabled = !_ocupado;
         }
 
         private void Logar(string mensagem) {
 
-            txtBoxMensagens.BeginInvoke(new Action(() => { 
-            
+            txtBoxMensagens.BeginInvoke(new Action(() => {
+
                 txtBoxMensagens.AppendText(mensagem + "\r\n");
             }));
         }
